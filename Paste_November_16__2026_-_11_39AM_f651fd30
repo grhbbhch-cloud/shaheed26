@@ -1,0 +1,801 @@
+# CRITICAL EXISTING WEBSITE REPAIR, COMPLETE ADMIN CONTROL, AND FUNCTIONALITY EXPANSION
+
+**IMPORTANT: DO NOT REBUILD, RESET, REPLACE, OR RECREATE MY WEBSITE. DO NOT DELETE ANY EXISTING WORK.**
+
+The website has already been created, and I want to keep it. I have spent a great deal of time rebuilding this project after previous losses. I do not want to create another account, restart the project, or repeat the entire development process.
+
+Your task is to carefully inspect the CURRENT website, identify every missing, broken, incomplete, inaccessible, or non-functional feature, and repair and complete it.
+
+This is a functional development task, not merely a visual redesign.
+
+My most important requirement is:
+
+**I MUST HAVE COMPLETE OWNER-LEVEL CONTROL OVER EVERY PART OF THE WEBSITE, AND EVERY SETTING MUST ACTUALLY WORK AND APPLY TO THE CORRECT ELEMENT ON THE PUBLIC WEBSITE.**
+
+Do not create settings that only appear in the dashboard. Every setting must be connected to a real function, stored persistently, and visibly applied.
+
+---
+
+## 1. Fix video thumbnail extraction completely
+
+The automatic thumbnail extraction feature is currently unreliable and must be repaired.
+
+When I upload any supported video, the system must:
+
+- Automatically process the uploaded video.
+- Extract six genuine thumbnail images from six different timestamps throughout the video.
+- Display all six images inside the upload interface.
+- Allow me to preview each image at a useful size.
+- Allow me to select one image as the video's thumbnail.
+- Clearly highlight the selected image.
+- Allow me to upload my own custom thumbnail instead.
+- Allow me to replace the selected thumbnail later.
+- Save the selected thumbnail permanently.
+- Display the selected thumbnail correctly on the homepage, video cards, category pages, search results, related-content sections, and video detail page.
+
+**Fix the actual extraction and processing mechanism.** Do not display six placeholder images, duplicate images, blank previews, or images that exist only inside the admin dashboard.
+
+The extraction must work with different video formats and different video durations, subject to actual technical support.
+
+If a video is still processing, show its real processing status and progress. If extraction fails, display a clear error and provide a retry option without losing the uploaded original video or the other information entered.
+
+Do not allow the upload interface to remain stuck indefinitely.
+
+## 2. Complete audit of all existing settings and features
+
+I have inspected the website and found that some options are missing, some do not work, some cannot be accessed, and some changes do not appear on the public website.
+
+You must perform a complete audit of the existing administration dashboard.
+
+Inspect every section, submenu, button, dropdown, checkbox, slider, color picker, text field, preview, upload control, save button, delete button, and editing function.
+
+For every item, verify:
+
+1. Can I access it?
+2. Can I change its value?
+3. Can I save the change?
+4. Does the change persist after refreshing the page?
+5. Does the change appear on the correct public website component?
+6. Can I edit it again?
+7. Can I remove it when appropriate?
+8. Can I restore it if I removed it?
+9. Does it work on desktop and mobile?
+10. Does it conflict with another setting?
+
+Fix every failure you discover.
+
+Do not leave incomplete settings, inaccessible controls, or buttons that do nothing.
+
+Do not claim that something works unless you have actually tested it.
+
+## 3. Complete control over every homepage sentence and text element
+
+There is currently a sentence on the homepage that has an administration section, but I cannot properly change or remove the sentence itself.
+
+This is unacceptable and must be fixed.
+
+I need complete control over every text element on the entire website, including:
+
+- Homepage main heading.
+- Homepage subtitle and description.
+- Section headings.
+- Section descriptions.
+- Small explanatory sentences.
+- Empty-state messages.
+- Buttons and their labels.
+- Navigation labels.
+- Footer text.
+- Video titles and descriptions.
+- Image titles and descriptions.
+- Article and post text.
+- Breadcrumbs.
+- Labels and badges.
+- Messages shown during loading or processing.
+- Any other sentence or text displayed anywhere.
+
+For each text element, provide the ability to:
+
+- Edit the actual sentence, not just its appearance.
+- Replace it with completely different text.
+- Delete it entirely.
+- Hide it without deleting it.
+- Restore it.
+- Change its position.
+- Change its alignment.
+- Change its font, size, weight, and line height.
+- Change its color or animated gradient.
+- Change its background, border, shadow, and decoration where applicable.
+- Control its visibility on desktop, tablet, and mobile.
+- Preview the exact result before publishing.
+
+**There must be no fixed, hardcoded, uneditable text on the public website.**
+
+If an element has an administration panel, that panel must provide control over the actual content of the element, not just its styling.
+
+I must also be able to add entirely new text elements and remove existing ones.
+
+## 4. Complete video player appearance and control-bar management
+
+The current video player settings are insufficient.
+
+Create a comprehensive visual and functional management interface for the entire video player.
+
+I need to see an accurate, interactive preview of the player while changing its settings.
+
+The preview must resemble the real public video player, not a small, unclear, incomplete, or unrelated preview.
+
+Provide controls for:
+
+### A. Video player appearance
+
+- Player background color.
+- Player background image or pattern where supported.
+- Player width and height.
+- Player aspect ratio.
+- Player border.
+- Border color and thickness.
+- Corner radius.
+- Shadow color, size, blur, and intensity.
+- Glow effects.
+- Spacing around the player.
+- Responsive behavior.
+- Fullscreen appearance.
+
+### B. Playback controls
+
+Give me control over every individual control:
+
+- Play and pause.
+- Volume.
+- Mute.
+- Progress bar.
+- Buffered progress.
+- Current playback time.
+- Total duration.
+- Playback speed.
+- Video quality.
+- Subtitles.
+- Fullscreen.
+- Download.
+- Share.
+- Picture-in-picture where supported.
+- Additional custom buttons.
+
+For each control, I must be able to:
+
+- Enable or disable it.
+- Change its icon.
+- Change its size.
+- Change its color.
+- Change its background.
+- Change its shape.
+- Change its border.
+- Change its shadow.
+- Change its hover appearance.
+- Change its active appearance.
+- Change its position and order.
+- Change its spacing.
+- Adjust its visibility on mobile and desktop.
+
+### C. Progress bar
+
+Provide separate settings for:
+
+- Total progress-bar background.
+- Played portion color.
+- Buffered portion color.
+- Hover color.
+- Height and thickness.
+- Rounded or square shape.
+- Progress indicator.
+- Hover preview where supported.
+- Animation and transition speed.
+
+### D. Control bar
+
+Allow me to customize:
+
+- Control-bar background.
+- Transparency.
+- Height.
+- Position.
+- Padding.
+- Button arrangement.
+- Icon sizes.
+- Icon colors.
+- Hover colors.
+- Shadows.
+- Borders.
+- Animations.
+- Visibility of individual controls.
+
+I must be able to preview every change and see it applied to the actual public video player.
+
+Do not provide decorative controls that are disconnected from the player.
+
+## 5. Complete management of the video play button outside the player
+
+The circular play button displayed over the video thumbnail is a separate element and must have its own management section.
+
+Allow me to control:
+
+- Play icon.
+- Icon design.
+- Icon size.
+- Circle size.
+- Shape.
+- Background color.
+- Icon color.
+- Border color.
+- Border thickness.
+- Shadow.
+- Glow.
+- Transparency.
+- Position.
+- Animation.
+- Hover effect.
+- Active effect.
+- Transition speed.
+- Desktop and mobile appearance.
+
+I must be able to change the button completely or remove it if I choose.
+
+Provide a live preview showing the actual thumbnail with the play button on top.
+
+## 6. Complete management of video information boxes and metadata
+
+Inside the video detail page, there is an information box beside the video containing information such as:
+
+- Publication date.
+- Views.
+- Category.
+- Source.
+- Original resolution.
+- Other metadata.
+
+I need full control over this entire box.
+
+I must be able to:
+
+- Edit every label.
+- Change the displayed date.
+- Change the displayed view count where manually managed.
+- Hide the view count.
+- Hide the publication date.
+- Hide the category.
+- Hide the source.
+- Hide the resolution.
+- Remove individual fields.
+- Add custom fields.
+- Change field names.
+- Change field order.
+- Change text colors.
+- Change font sizes and styles.
+- Change backgrounds.
+- Change borders.
+- Change shadows.
+- Change spacing.
+- Change the entire box layout.
+- Remove the entire box.
+- Restore it later.
+
+If view counts are automatically calculated, provide a separate authorized owner override where technically appropriate. Make clear whether a displayed value is manually controlled or automatically calculated.
+
+Do not permanently delete stored metadata merely because I hide it from visitors.
+
+All changes must apply to existing and future video detail pages according to my selected settings.
+
+## 7. Related content: complete control over the number and appearance
+
+The section named **مواد ذات صلة** must have complete management options.
+
+I must be able to:
+
+- Enable or disable the section.
+- Remove it completely from the public page.
+- Restore it later.
+- Change its title.
+- Replace the title with another sentence.
+- Change the description.
+- Choose which content types appear.
+- Select videos only, images only, posts only, or mixed content.
+- Choose content from specific pages or child pages.
+- Select sorting rules such as newest, oldest, or manually selected.
+- Set the exact maximum number of items displayed.
+- Choose 1, 2, 3, 4, 5, 6, 8, 10, or another custom number.
+- Select specific related items manually.
+- Change the card layout.
+- Change image dimensions.
+- Change card size and spacing.
+- Change titles, fonts, colors, and backgrounds.
+- Change borders, shadows, and hover effects.
+- Control how the section appears on desktop and mobile.
+
+The selected maximum must actually be respected on the public website.
+
+For example, if I choose a maximum of 4 related videos, the public page must not display 5 or 6.
+
+The preview must show the selected number of items accurately.
+
+## 8. Complete upload and publishing workflow from one place
+
+This is extremely important.
+
+I previously requested that I should be able to complete the entire publishing process directly from the upload center without being forced to navigate through many separate administration screens.
+
+When uploading a video, I must be able to do everything in one organized workflow:
+
+1. Select and upload the video.
+2. Enter the title.
+3. Enter the description.
+4. Select the main page.
+5. Select the child page or nested category.
+6. Select additional display locations if needed.
+7. Extract and select one of the six real thumbnails.
+8. Upload a custom thumbnail if desired.
+9. Configure video-player settings.
+10. Configure the external play button.
+11. Configure the information box and metadata.
+12. Configure related content.
+13. Configure download and share buttons.
+14. Configure subtitles.
+15. Configure custom buttons.
+16. Configure animated title colors and text appearance.
+17. Configure advanced settings.
+18. Preview the complete public video page.
+19. Save as a draft, schedule, or publish.
+
+The same principle should apply to images, articles, posts, audio, and other content types, with relevant settings for each type.
+
+All settings must be available before publishing and editable afterward.
+
+The page and child-page selection must use the actual central page tree. Do not provide an empty or disconnected category selector.
+
+Do not create duplicate content records when the same item appears in multiple sections.
+
+## 9. Clickable images with custom destination URLs
+
+A previously requested feature is missing.
+
+I must be able to upload or select an image and attach a URL to it.
+
+For each image, provide:
+
+- Image upload or selection from the media library.
+- Destination URL field.
+- Internal or external destination.
+- Open in the same tab or a new tab.
+- Enable or disable clickable behavior.
+- Optional link label.
+- Optional accessibility description.
+- Preview of the image and its destination.
+- Edit and remove link options.
+
+When a visitor clicks the image, the configured destination must actually open.
+
+This feature must work for:
+
+- Homepage banners.
+- Homepage image sections.
+- Image cards.
+- Navigation-related images.
+- Promotional images.
+- Custom sections.
+- Images inside content pages.
+
+Do not simply display an image with a URL field that does not affect its click behavior.
+
+## 10. Complete access to all administration sections
+
+Expand the existing administration dashboard and ensure that every important feature is accessible.
+
+Do not remove existing sections.
+
+The dashboard should provide comprehensive management for:
+
+- Overview.
+- Page management.
+- Content management.
+- Video library.
+- Image and media library.
+- Upload center.
+- Homepage builder.
+- Navigation and menus.
+- Video player.
+- Video buttons and icons.
+- Subtitles and translations.
+- Design and appearance.
+- Colors and animated gradients.
+- Typography and fonts.
+- Backgrounds and patterns.
+- Islamic geometric decorations.
+- Shadows, borders, and effects.
+- Search.
+- Cloud storage.
+- Users and permissions.
+- Backup and restore.
+- Version history.
+- Activity logs.
+- Security.
+- General settings.
+- Custom HTML, CSS, JavaScript, and supported code management.
+- System health.
+- **غير ذلك**.
+
+The **غير ذلك** section must remain present. It should contain additional useful configuration options that do not belong in the other sections, without creating duplicate or meaningless settings.
+
+Every section must contain its actual relevant controls, not merely a heading or empty page.
+
+## 11. Complete control over pages, branches, and navigation
+
+I need full control over all pages and nested pages.
+
+I must be able to:
+
+- Create pages.
+- Create child pages.
+- Create nested child pages.
+- Rename pages.
+- Change URLs and slugs.
+- Change page order.
+- Move pages between parent pages.
+- Hide pages.
+- Show pages.
+- Delete pages.
+- Restore pages where supported.
+- Change page backgrounds.
+- Change page layouts.
+- Change page colors.
+- Change page typography.
+- Change page-specific decorations.
+- Control whether a page appears in navigation.
+- Control whether it appears in the footer.
+- Preview every page before publishing.
+
+When I upload content, I must be able to select its destination from this same page hierarchy.
+
+A parent page must be able to display content from its child pages without creating duplicate records.
+
+Changes to one page's design must not unexpectedly affect other pages.
+
+## 12. Complete design control across the entire website
+
+I need more than a few basic color settings.
+
+Provide detailed controls for:
+
+### Colors and gradients
+- Individual color selection.
+- HEX and RGB input.
+- Background colors.
+- Text colors.
+- Border colors.
+- Icon colors.
+- Button colors.
+- Hover colors.
+- Active colors.
+- Shadows and glow colors.
+- Multi-color gradients.
+- Animated gradients with 3, 4, or more colors.
+- Gradient direction.
+- Animation speed.
+- Transition smoothness.
+- Transparency and intensity.
+- Continuous or non-continuous animation.
+
+These controls must be available for the relevant components throughout the site, including video players, titles, buttons, cards, posts, images, navigation, and admin interfaces.
+
+### Typography
+- Font family.
+- Font size.
+- Font weight.
+- Line height.
+- Letter spacing.
+- Alignment.
+- Text decoration.
+- Responsive font sizes.
+
+### Backgrounds and patterns
+- Solid backgrounds.
+- Gradient backgrounds.
+- Uploaded background images.
+- Repeating patterns.
+- Geometric patterns.
+- Background position.
+- Background size.
+- Opacity.
+- Overlay colors.
+- Pattern intensity.
+- Optional animated backgrounds.
+
+### Islamic geometric decorations
+Provide controls for decoration type, shape, size, color, opacity, position, rotation, spacing, and animation.
+
+I must be able to change, hide, delete, or replace decorations independently on the homepage, navigation, individual pages, and content sections.
+
+### Loading animations
+Provide a library of loading animations for page loading, video loading, content loading, and other relevant operations.
+
+Allow me to change:
+
+- Animation design.
+- Icon or shape.
+- Size.
+- Color.
+- Animated gradient.
+- Speed.
+- Background.
+- Shadow.
+- Position.
+- Visibility.
+
+Allow me to remove an animation or select another one.
+
+All these changes must be applied to the correct public component.
+
+## 13. Complete control over all buttons and icons
+
+Every button must be manageable.
+
+This includes:
+
+- Download buttons.
+- Share buttons.
+- Play buttons.
+- Navigation buttons.
+- Search buttons.
+- Video-player controls.
+- Homepage buttons.
+- Custom buttons.
+- Related-content controls.
+- Admin buttons where appropriate.
+
+For every button, allow me to change:
+
+- Text.
+- Icon.
+- Icon position.
+- Icon size.
+- Button size.
+- Shape.
+- Background.
+- Text color.
+- Border.
+- Shadow.
+- Hover effect.
+- Active effect.
+- Animation.
+- Spacing.
+- Position.
+- Action or destination.
+- Visibility.
+
+I must be able to add, edit, reorder, disable, hide, or delete custom buttons.
+
+The button's actual action must continue to work after its appearance is customized.
+
+## 14. Complete subtitle and translation management
+
+Ensure that subtitle management is fully functional.
+
+I must be able to select a video and add, edit, delete, and manage its subtitle tracks.
+
+Provide:
+
+- Manual subtitle entry.
+- Start and end timestamps.
+- Subtitle text.
+- Multiple language tracks.
+- Language labels.
+- SRT import and export.
+- VTT import and export.
+- Subtitle preview on the actual video.
+- Enable and disable subtitles.
+- Subtitle font.
+- Font size.
+- Font weight.
+- Text color.
+- Background color.
+- Background transparency.
+- Outline.
+- Shadow.
+- Position.
+- Alignment.
+- Line spacing.
+- Margins.
+
+Visitors must only see subtitle languages that actually exist and have been published.
+
+The selected subtitle style must appear correctly on the public player.
+
+Subtitle settings must be saved and remain attached to the correct video.
+
+## 15. Custom code editor must work
+
+The custom code editor must support the intended HTML, CSS, and JavaScript functionality.
+
+I need to be able to:
+
+- Add code.
+- Edit code.
+- Delete code.
+- Save versions.
+- Preview changes.
+- Validate code.
+- See understandable error messages.
+- Restore a previous working version.
+- Apply code to the intended page or component.
+
+Code must be scoped correctly so that changes to one component do not accidentally break the rest of the website.
+
+Do not allow custom code to bypass authentication, expose passwords, or weaken security.
+
+If code contains an error, preserve the previous working version instead of replacing it with broken code.
+
+## 16. Complete owner permissions and access control
+
+I need full owner-level control over the entire website.
+
+I must be able to manage every page, branch, content item, image, video, sentence, button, icon, URL, visual setting, player setting, subtitle, upload, and configuration.
+
+I must be able to add, edit, hide, restore, publish, unpublish, and delete the relevant elements.
+
+Do not leave important settings locked, inaccessible, or dependent on developer intervention.
+
+Protect the administration area from public visitors. Public visitors must not be able to edit the website or access owner settings.
+
+Keep authentication and sensitive credentials securely validated on the server side.
+
+## 17. Data preservation and protection
+
+This is an existing website, and I do not authorize deleting or resetting its current data.
+
+Before modifying the system:
+
+- Inspect the current database and storage.
+- Preserve existing pages and their hierarchy.
+- Preserve current content and media.
+- Preserve settings and visual configurations.
+- Preserve authentication and access controls.
+- Preserve existing URLs wherever possible.
+- Create a recoverable backup before risky changes.
+- Avoid duplicate records.
+- Avoid replacing working features with incomplete alternatives.
+
+If a migration is necessary, perform it safely and verify the result.
+
+Do not use browser-only temporary storage for essential content or settings.
+
+Changes must persist after refresh, logout, login, and deployment.
+
+## 18. Mandatory testing and verification
+
+Do not finish after merely adding controls to the dashboard.
+
+Test the actual behavior of every repaired feature.
+
+At minimum, verify the following:
+
+**Thumbnail extraction test**
+- Upload a real video.
+- Extract six actual frames.
+- Display all six.
+- Select one.
+- Save it.
+- Confirm it appears publicly.
+
+**Text editing test**
+- Change an actual homepage sentence.
+- Save it.
+- Confirm the new sentence appears publicly.
+- Delete or hide it.
+- Confirm the result.
+- Restore it.
+
+**Video player test**
+- Change the player colors.
+- Change the progress bar.
+- Change control icons.
+- Change the external play button.
+- Confirm every change appears on the public video page.
+
+**Metadata test**
+- Change or hide the date and views.
+- Add or remove a metadata field.
+- Confirm the actual public information box changes.
+
+**Related content test**
+- Set the maximum to 4.
+- Confirm that no more than 4 items appear.
+
+**Clickable image test**
+- Upload an image.
+- Attach a destination URL.
+- Publish it.
+- Click it as a visitor.
+- Confirm the correct destination opens.
+
+**Upload workflow test**
+- Upload a video.
+- Enter its title and description.
+- Choose a main page and child page.
+- Select a thumbnail.
+- Configure advanced settings.
+- Preview and publish.
+- Confirm the complete result publicly.
+
+**Persistence test**
+- Refresh.
+- Log out and log back in.
+- Confirm that all saved settings and content remain.
+
+Also test desktop and mobile layouts.
+
+If a feature cannot be implemented because of a genuine technical limitation, identify the exact limitation and provide the best working alternative. Do not pretend that it works.
+
+## 19. Strict rules for this modification
+
+1. Do not rebuild the website from scratch.
+2. Do not create a new project or account.
+3. Do not delete existing content or settings.
+4. Do not remove features that already work.
+5. Do not replace working upload functionality with a new untested implementation.
+6. Do not change the overall website identity unnecessarily.
+7. Do not add decorative controls that have no real function.
+8. Do not claim that a setting works without testing it.
+9. Do not leave uneditable text, buttons, sections, or components.
+10. Do not leave important features inaccessible from the admin dashboard.
+11. Do not expose private owner settings or credentials to visitors.
+12. Do not stop after fixing only the first issue. Complete the entire requested audit.
+
+The objective is to make the existing website genuinely complete, manageable, stable, and professionally functional.
+
+---
+
+## 20. FINAL REQUIREMENT: PROVIDE AND VERIFY THE NEW WEBSITE LINKS
+
+After completing all modifications and tests, deploy the updated website and provide the actual new links.
+
+I need:
+
+**A. Public website URL**
+
+A real production URL that anyone around the world can open, without needing:
+
+- My Google account.
+- My AI Studio account.
+- Project collaboration access.
+- An invitation.
+- Developer access.
+- An editor or preview session.
+
+**B. Owner administration URL**
+
+The protected administration link, using the `/admin` route on the actual deployed website.
+
+The public website must remain accessible to visitors, but the administration dashboard must remain protected.
+
+Before sending the links, you MUST:
+
+1. Deploy the latest version.
+2. Open the public URL in an incognito/private browser session.
+3. Test it without relying on my logged-in AI Studio account.
+4. Verify that a visitor can open the homepage and navigate the public pages.
+5. Verify that published videos, images, and content load correctly.
+6. Verify that the website works after refreshing.
+7. Verify the administration URL separately.
+8. Confirm that public visitors cannot access owner controls.
+9. Confirm that the links point to the latest deployed version, not an old preview or development environment.
+
+Do not send temporary, preview, development, or account-restricted links as the public website URL.
+
+If you cannot complete a test, state that honestly. Do not describe an unverified link as working.
+
+At the end, provide:
+- The actual public website URL.
+- The actual owner administration URL.
+- A concise list of the repairs completed.
+- A list of tests that passed.
+- Any remaining limitations that were genuinely impossible to resolve.
+
+**FINAL PRIORITY: PRESERVE THE EXISTING WEBSITE, REPAIR EVERYTHING THAT IS MISSING OR BROKEN, GIVE ME COMPLETE WORKING OWNER CONTROL, TEST THE REAL PUBLIC RESULTS, AND ONLY THEN SEND THE NEW VERIFIED LINKS.**

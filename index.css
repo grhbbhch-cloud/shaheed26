@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    direction: rtl;
+    font-family: 'Cairo', 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: #ffffff;
+    color: #171717;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@property --alharbi-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes alharbiGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes alharbiGradientPingPong {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes alharbiConicSpin {
+  0% {
+    --alharbi-angle: 0deg;
+    background-position: 0% 50%;
+  }
+  50% {
+    --alharbi-angle: 180deg;
+    background-position: 100% 50%;
+  }
+  100% {
+    --alharbi-angle: 360deg;
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes alharbiShineSweep {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes alharbiFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes alharbiPatternDrift {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 120px 120px;
+  }
+}
+
+@keyframes alharbiPatternPulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes alharbiSpinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes alharbiWordPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.alharbi-btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.alharbi-btn-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.28) 50%, transparent 80%);
+  transform: translateX(120%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+}
+.alharbi-btn-shine:hover::after {
+  transform: translateX(-120%);
+}
+
+@keyframes alharbiTitleSweepRTL {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.alharbi-title-rtl {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.alharbi-title-rtl-pause:hover {
+  animation-play-state: paused !important;
+}
+
+.alharbi-title-rtl-speedup:hover {
+  animation-duration: var(--alharbi-title-fast-speed, 2s) !important;
+}
+
+.alharbi-title-rtl-highlight:hover {
+  filter: brightness(1.18) saturate(1.25) !important;
+}
+
+@keyframes alharbiPoetryFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes alharbiPoetryFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes alharbiPoetrySlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+

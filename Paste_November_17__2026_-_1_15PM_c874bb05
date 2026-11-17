@@ -1,0 +1,1785 @@
+# ULTIMATE MASTER PROMPT — COMPLETE PERMANENT, DATA-SAFE REBUILD OF “أرشيف الشهيد”
+## FULL WEBSITE, FULL ADMINISTRATION, ALL PREVIOUS FEATURES, ALL NEW FEATURES, PERMANENT DATA STORAGE, AND VERIFIED FUNCTIONALITY
+
+**READ THIS ENTIRE SPECIFICATION BEFORE STARTING. DO NOT SKIP ANY SECTION.**
+
+I am providing you with project files, images, previous designs, assets, and other materials. You must inspect every supplied file carefully and use them as references for the complete project.
+
+The website name is:
+
+**أرشيف الشهيد**
+
+This is a complete website and administration system, not a simple landing page or visual prototype.
+
+My most important requirement is that the website must be reliable, fully functional, and capable of preserving every uploaded file, published item, poem, suggestion, account, setting, design choice, page, menu, and configuration after saving, refreshing, closing the browser, restarting the application, redeploying, or returning days or months later.
+
+I have already experienced a serious data-loss problem: videos, content, and settings appeared to save successfully, but after I left the application and returned, everything had disappeared.
+
+**THIS MUST BE SOLVED AT THE ARCHITECTURE LEVEL. DO NOT REPEAT THIS FAILURE.**
+
+---
+
+# PART 1 — ABSOLUTE DATA-PRESERVATION REQUIREMENT
+
+## 1.1 Permanent database storage
+
+Do not use browser memory, React state, temporary application memory, session storage, or localStorage as the primary database for any important content or settings.
+
+Use a real persistent production database connected to the deployed application.
+
+The database must permanently store:
+
+- All videos and their records.
+- All images and their records.
+- All articles, reports, posts, and publications.
+- All poems and poem suggestions.
+- All user submissions.
+- All accounts and profiles, where enabled.
+- All account verification records.
+- All pages and child pages.
+- All menus and navigation structures.
+- All homepage sections and their configurations.
+- All design settings.
+- All colors and animated color configurations.
+- All fonts, sizes, shadows, borders, and backgrounds.
+- All video player configurations.
+- All subtitles and language settings.
+- All download and sharing configurations.
+- All buttons, icons, and custom code.
+- All login and security configurations.
+- All user roles and permissions.
+- All metadata and related-content relationships.
+- All drafts, scheduled items, and archived content.
+- All other settings added in the future.
+
+Every setting must be saved to persistent storage and retrieved from that storage when the application loads.
+
+## 1.2 Permanent cloud file storage
+
+All uploaded files must be stored in durable cloud storage, not temporary deployment folders or browser storage.
+
+Use a suitable production storage service such as Cloudflare R2, Amazon S3, Firebase Storage, Google Cloud Storage, or another reliable persistent service.
+
+Store:
+
+- Original videos.
+- Processed video versions.
+- Images.
+- Thumbnails.
+- Extracted video frames.
+- Audio.
+- Documents.
+- SVG files.
+- Background images.
+- Logos.
+- Custom fonts.
+- Subtitle files.
+- Any other uploaded assets.
+
+Store file references and metadata in the database.
+
+Do not save only a temporary URL or a local file path that becomes invalid after redeployment.
+
+The application must be able to retrieve every previously uploaded file after a restart or redeployment.
+
+## 1.3 Strict save procedure
+
+Every save operation must follow this process:
+
+1. Validate the submitted information.
+2. Save the information to the permanent database.
+3. Confirm that the database successfully committed the changes.
+4. If files are involved, confirm that the files were uploaded and can be retrieved.
+5. Confirm that all relationships and references are correct.
+6. Only then display a successful save message.
+7. Refresh the relevant data from the persistent database.
+8. Display the saved version, not merely the temporary form state.
+
+If saving fails, clearly show the failure and preserve the user's unsaved work whenever possible.
+
+Never display "Saved successfully" if the data was not actually saved.
+
+## 1.4 Automatic backups and recovery
+
+Build a complete Backup and Restore system.
+
+Required features:
+
+- Automatic scheduled database backups.
+- Automatic backup of important configuration records.
+- Backup of media-file references and storage metadata.
+- Multiple backup generations.
+- Daily backups.
+- Weekly backups.
+- Monthly backups.
+- Configurable backup schedules.
+- Manual backup button.
+- Backup history.
+- Backup dates and status.
+- Backup verification.
+- Restore selected backup.
+- Restore previous version of a setting.
+- Restore deleted content when available.
+- Download backup archives.
+- Clearly display failed backups.
+- Alert the owner if backup creation fails.
+
+Store backups separately from the primary production database and primary file storage whenever supported.
+
+Do not let a database failure or deployment update destroy all available backups.
+
+Before restoring, create a backup of the current state.
+
+Test actual restoration, not merely backup creation.
+
+## 1.5 Version history and audit log
+
+Every important change must have a history.
+
+Record:
+
+- What changed.
+- When it changed.
+- Which account performed the change.
+- Previous value.
+- New value.
+- Whether the operation succeeded.
+- Whether the item was deleted, restored, published, or unpublished.
+
+Provide the owner with the ability to:
+
+- View previous versions.
+- Compare changes.
+- Restore previous settings.
+- Restore previous page layouts.
+- Restore previous content versions.
+- Review deleted items.
+- Recover accidentally removed content.
+
+Use a recoverable trash/recycle-bin system before permanent deletion.
+
+Permanent deletion must require explicit owner confirmation.
+
+## 1.6 Data migration and deployment protection
+
+A new deployment must never automatically create an empty database or overwrite existing production data.
+
+Before every major update:
+
+- Detect the existing database.
+- Preserve its contents.
+- Run safe database migrations.
+- Back up existing data.
+- Verify that existing records remain accessible.
+- Verify that existing media files remain accessible.
+- Verify that all settings remain intact.
+
+Never replace a populated production database with a fresh empty database.
+
+Never use temporary development storage as production storage.
+
+Never confuse preview data with production data.
+
+If the required cloud database or storage credentials are missing, clearly identify the missing configuration and stop before claiming the system is permanently saved.
+
+## 1.7 Mandatory data-loss testing
+
+Test the following before delivery:
+
+1. Upload a video.
+2. Publish a poem.
+3. Create a page.
+4. Change the website colors.
+5. Change the navigation menu.
+6. Change video player settings.
+7. Add a subtitle.
+8. Submit a poem suggestion.
+9. Change account settings.
+10. Save all changes.
+11. Close the application.
+12. Reopen the public website.
+13. Reopen `/admin`.
+14. Refresh the pages.
+15. Sign out and sign back in.
+16. Verify every item and setting.
+17. Restart or redeploy the application in a safe test environment.
+18. Verify the same data again.
+19. Restore a backup in a separate test environment.
+20. Confirm that the restored website contains the expected content and settings.
+
+Do not claim success until these tests pass.
+
+---
+
+# PART 2 — WEBSITE STRUCTURE AND PUBLIC ACCESS
+
+## 2.1 Public website
+
+Create a professional Arabic RTL public website named:
+
+**أرشيف الشهيد**
+
+The public website must be accessible to everyone through its public URL.
+
+Visitors must not need an administrator account to browse public content.
+
+The public website must include:
+
+- Homepage.
+- Main navigation.
+- Dropdown menus.
+- Poems.
+- Videos.
+- Images.
+- Publications.
+- Articles.
+- Reports.
+- Archive.
+- About page.
+- Contact page.
+- Search.
+- Media detail pages.
+- Any additional pages created by the owner.
+
+The owner must be able to add, edit, rename, reorder, hide, show, publish, unpublish, and delete public pages.
+
+## 2.2 Separate administration dashboard
+
+The administration dashboard must exist only at:
+
+`/admin`
+
+Do not display the administration dashboard on the public homepage.
+
+Do not expose owner-only controls to public visitors.
+
+Protect every administration route, API, and sensitive operation through real server-side authentication and authorization.
+
+Hiding an admin button is not security.
+
+## 2.3 Two-secret-code administrator access
+
+The administrator login must require two separate secret access codes.
+
+- First secret code.
+- Second secret code.
+
+Both must be verified securely on the server.
+
+One correct code alone must never grant access.
+
+The owner must be able to change both codes through secure security settings.
+
+Never expose the codes in public frontend code, browser storage, logs, or public APIs.
+
+Use secure hashing, rate limiting, session protection, logout, and configurable session expiration.
+
+The owner must have a secure recovery procedure.
+
+Do not hardcode example credentials into the public application.
+
+## 2.4 Public and admin URLs
+
+After deployment, provide:
+
+- The real public website URL.
+- The real administrator URL ending in `/admin`.
+
+Test both URLs in an incognito window and a separate browser session.
+
+Verify that public visitors can browse without logging in.
+
+Verify that unauthorized visitors cannot access the dashboard or protected APIs.
+
+Do not provide preview-only links as final production links.
+
+---
+
+# PART 3 — COMPLETE ADMINISTRATION DASHBOARD
+
+Create a comprehensive Arabic RTL administration dashboard.
+
+The owner must have full control over every feature, page, setting, and content item.
+
+The dashboard must contain the following sections:
+
+1. Overview — الرئيسية في لوحة الإدارة.
+2. Page Management — إدارة الصفحات.
+3. Content Management — إدارة المحتوى.
+4. Poetry Management — إدارة القصائد.
+5. Suggestions and Submissions — الاقتراحات والمشاركات.
+6. Account Management — إدارة الحسابات.
+7. Verification Management — إدارة التوثيق.
+8. Video Library — مكتبة الفيديوهات.
+9. Image and Media Library — مكتبة الصور والوسائط.
+10. Upload Center — مركز الرفع.
+11. Homepage Builder — إدارة الرئيسية.
+12. Navigation Management — إدارة القوائم والشريط.
+13. Video Player Settings — إعدادات مشغل الفيديو.
+14. Design and Appearance — التصميم والمظهر.
+15. Colors and Animations — الألوان والحركات.
+16. Buttons and Icons — الأزرار والرموز.
+17. Translation and Languages — الترجمة واللغات.
+18. Custom Code Management — إدارة الأكواد.
+19. Search Management — إدارة البحث.
+20. SEO Settings — إعدادات محركات البحث.
+21. Cloud Storage — التخزين السحابي.
+22. Backup and Restore — النسخ الاحتياطي والاستعادة.
+23. Version History — سجل الإصدارات.
+24. Security and Permissions — الأمان والصلاحيات.
+25. General Settings — الإعدادات العامة.
+26. System Health — حالة النظام.
+
+Every section must contain meaningful, detailed, functional controls.
+
+Do not create empty sections or decorative buttons.
+
+## 3.1 Owner permissions
+
+The owner must have full permissions to:
+
+- Create.
+- Edit.
+- Delete.
+- Restore.
+- Publish.
+- Unpublish.
+- Schedule.
+- Archive.
+- Upload.
+- Download.
+- Move.
+- Reorder.
+- Hide.
+- Show.
+- Customize.
+- Preview.
+- Change permissions.
+- Change settings.
+- Manage accounts.
+- Manage submissions.
+- Manage verification.
+- Manage all pages.
+- Manage all media.
+- Manage all visual elements.
+- Manage all system configurations.
+
+No feature should be inaccessible to the owner because of an incorrectly configured role.
+
+## 3.2 Permissions for other accounts
+
+Allow the owner to create optional roles, such as:
+
+- Administrator.
+- Editor.
+- Publisher.
+- Moderator.
+- Contributor.
+- Viewer.
+
+The owner must configure permissions separately for every role.
+
+For example, the owner can allow an editor to create drafts but prevent that editor from publishing or deleting content.
+
+All permissions must be enforced by the backend.
+
+---
+
+# PART 4 — CENTRAL PAGE MANAGEMENT AND CHILD PAGES
+
+Create one central page-management system.
+
+This must be the single source of truth for all public pages and their child pages.
+
+Do not scatter page creation across unrelated sections.
+
+## 4.1 Page tree
+
+Display pages in a clear hierarchical tree.
+
+Example:
+
+- الرئيسية
+- المنشورات
+  - قسم 1
+  - قسم 2
+  - قسم 3
+- الفيديوهات
+  - المقابلات
+  - التقارير
+  - الوثائقيات
+  - الأرشيف
+- الصور
+  - الصور التاريخية
+  - المناسبات
+  - المعارض
+- القصائد
+- المقالات
+- التقارير
+- الأرشيف
+- من نحن
+- اتصل بنا
+
+This is an example, not a fixed structure.
+
+The owner can create unlimited practical page branches subject to reasonable system limits.
+
+## 4.2 Page creation
+
+For every page and child page, provide:
+
+- Page name.
+- Arabic title.
+- Optional English title.
+- URL slug.
+- Parent page.
+- Page type.
+- Page description.
+- Page image.
+- Page background.
+- Visibility.
+- Publication status.
+- Sorting order.
+- Custom layout.
+- SEO title.
+- SEO description.
+- Custom code assignment.
+- Page-specific colors.
+- Page-specific fonts.
+- Page-specific spacing.
+- Page-specific cards.
+- Page-specific buttons.
+
+Allow the owner to create, rename, edit, duplicate, move, reorder, hide, unhide, publish, unpublish, and delete pages.
+
+## 4.3 Publishing directly into pages
+
+The publishing screen must use the actual page tree.
+
+When uploading a video, image, article, poem, or post, the owner must be able to select:
+
+- Main page.
+- Child page.
+- Additional display locations.
+- Homepage sections.
+
+Do not provide an empty or disconnected category selector.
+
+When a parent page is configured to include content from its child pages, display the appropriate child content without duplicating database records.
+
+One content item can appear in several locations while remaining one original record.
+
+---
+
+# PART 5 — COMPLETE CONTENT MANAGEMENT
+
+Create a unified content-management system.
+
+Support:
+
+- Videos.
+- Images.
+- Image galleries.
+- Articles.
+- News.
+- Reports.
+- Text publications.
+- Poetry.
+- Audio.
+- Documents.
+- Custom content types.
+
+For every item, provide:
+
+- Title.
+- Description.
+- Main content.
+- Thumbnail.
+- Cover image.
+- Main category.
+- Child category.
+- Display locations.
+- Publication date.
+- Optional custom date.
+- Author.
+- Tags.
+- Related materials.
+- Download permissions.
+- Sharing permissions.
+- Visibility controls.
+- Metadata controls.
+- Custom buttons.
+- Draft status.
+- Published status.
+- Scheduled status.
+- Archived status.
+
+Allow the owner to edit or delete any item.
+
+Allow the owner to hide views, dates, author information, metadata, and any other unwanted information independently.
+
+Do not force unwanted metadata onto the public page.
+
+---
+
+# PART 6 — THE POETRY SECTION: COMPLETE FEATURE
+
+Create a dedicated, beautiful, fully configurable page named:
+
+**القصائد**
+
+This must be a complete content system, not a simple list of text.
+
+The owner must have full control over every detail.
+
+## 6.1 Poetry page design
+
+Allow the owner to customize:
+
+- Page title.
+- Page subtitle.
+- Background.
+- Background image.
+- Background pattern.
+- Animated background.
+- Main colors.
+- Animated colors.
+- Font family.
+- Arabic typography.
+- Text size.
+- Text weight.
+- Line spacing.
+- Paragraph spacing.
+- Poem card shape.
+- Card width.
+- Card height.
+- Borders.
+- Shadows.
+- Decorative elements.
+- Dividers.
+- Icons.
+- Buttons.
+- Hover effects.
+- Entrance animations.
+- Sorting.
+- Number of poems per page.
+- Pagination.
+- Search.
+- Filters.
+- Featured poems.
+- Latest poems.
+
+The owner must be able to preview changes before publishing them.
+
+Every change must be saved permanently.
+
+## 6.2 The "شارك" button
+
+At the top of the poetry page, include a prominent button with the default Arabic label:
+
+**شارك**
+
+The owner must be able to customize this button completely.
+
+Settings must include:
+
+- Button label.
+- Button description.
+- Button position.
+- Button size.
+- Button width.
+- Button height.
+- Text color.
+- Background color.
+- Animated background.
+- Border.
+- Border radius.
+- Shadow.
+- Icon.
+- Icon position.
+- Font.
+- Font size.
+- Hover color.
+- Hover animation.
+- Glow.
+- Visibility.
+- Mobile appearance.
+- Desktop appearance.
+
+The owner can rename the button or disable it.
+
+## 6.3 Visitor poem submission
+
+When a visitor presses "شارك", open a beautiful submission form.
+
+The form must support:
+
+- Poem title.
+- Poem text.
+- Poet name or optional nickname.
+- Optional contact information.
+- Optional account association.
+- Optional attachment if enabled.
+- Consent to submit.
+- Submission button.
+- Clear success message.
+- Clear validation messages.
+
+Allow the owner to configure which fields are required, optional, visible, or hidden.
+
+A visitor must be able to submit a poem without the submission being published automatically.
+
+The submission must be saved permanently in the database.
+
+## 6.4 Owner submission inbox
+
+Every submitted poem must appear in the administration dashboard under:
+
+**اقتراحات القصائد والمشاركات**
+
+Provide:
+
+- New submissions.
+- Pending review.
+- Approved submissions.
+- Rejected submissions.
+- Archived submissions.
+
+For each submission, the owner can:
+
+- Read.
+- Edit.
+- Approve.
+- Reject.
+- Publish.
+- Save as draft.
+- Delete.
+- Restore.
+- Reply if a reply feature is enabled.
+- Copy the poem.
+- Convert the submission into a published poem.
+- Select its publication category.
+- Select its display location.
+
+Publishing a submission must not create accidental duplicate records.
+
+Keep a record of the original submission and its moderation history.
+
+## 6.5 Owner-created poems
+
+The owner must also be able to write and publish poems directly without using the visitor submission form.
+
+Provide a full poem editor with:
+
+- Title.
+- Poet name.
+- Poem text.
+- Line-by-line editing.
+- Formatting.
+- Font selection.
+- Font size.
+- Text alignment.
+- Text color.
+- Animated text color.
+- Background.
+- Image attachment.
+- Cover image.
+- Publication date.
+- Tags.
+- Categories.
+- Related poems.
+- Visibility.
+- Draft and publication status.
+
+The owner must be able to edit any published poem later.
+
+## 6.6 Poetry display and sharing
+
+Each poem can have its own detail page.
+
+Allow the owner to configure:
+
+- Copy poem button.
+- Share button.
+- Download as image.
+- Download as text.
+- Print.
+- Custom buttons.
+- Related poems.
+- Author information.
+- Publication date.
+- Optional comments or reactions.
+
+If image export is enabled, generate a real downloadable image using the actual poem text and configured design.
+
+Arabic letters must render correctly.
+
+Preserve line breaks, punctuation, and RTL alignment.
+
+Do not crop letters or cut off the beginning or end of lines.
+
+---
+
+# PART 7 — ACCOUNT MANAGEMENT AND VERIFICATION
+
+Create a configurable account system.
+
+The owner must control whether public registration and user accounts are enabled.
+
+Support, where enabled:
+
+- Registration.
+- Login.
+- Logout.
+- Password recovery.
+- Account profile.
+- Display name.
+- Profile image.
+- Account status.
+- Account permissions.
+- Account activity.
+- Submission history.
+- Account editing.
+- Account suspension.
+- Account deletion.
+- Account restoration where available.
+
+## 7.1 Verification
+
+Provide a complete verification-management system.
+
+Allow the owner to configure:
+
+- Verification feature enabled or disabled.
+- Verification request form.
+- Required information.
+- Verification status.
+- Pending verification requests.
+- Approved requests.
+- Rejected requests.
+- Verification badge.
+- Badge shape.
+- Badge color.
+- Badge size.
+- Badge position.
+- Badge visibility.
+- Verification expiry if needed.
+
+The owner must manually approve or reject verification requests unless another explicitly configured process is enabled.
+
+Never display a verified badge merely because an account requested verification.
+
+Do not expose private account information publicly.
+
+## 7.2 Account permissions
+
+The owner must control what each account can do.
+
+For example:
+
+- Submit poems.
+- Edit its own submissions.
+- Comment, if enabled.
+- Download content, if enabled.
+- Share content.
+- Access specific pages.
+- Submit suggestions.
+
+All permissions must be enforced server-side.
+
+---
+
+# PART 8 — VIDEO UPLOAD AND MEDIA MANAGEMENT
+
+Video upload must be reliable and fully functional.
+
+Support large videos, including videos around 30 minutes or longer where infrastructure permits.
+
+Provide:
+
+- Fast uploads.
+- Resumable uploads.
+- Chunked uploads.
+- Real upload progress.
+- Upload speed.
+- Remaining-time estimate where available.
+- Pause.
+- Resume.
+- Cancel.
+- Retry.
+- Clear upload status.
+- Duplicate-upload protection.
+- Upload error details.
+- File validation.
+- Storage verification.
+
+Do not lose the original file if processing fails.
+
+Do not restart an entire large upload unnecessarily after a temporary connection failure.
+
+Do not create duplicate files or duplicate database records when the user retries.
+
+## 8.1 Thumbnail and frame extraction
+
+Inside the same upload workflow, provide:
+
+- Automatic thumbnail generation.
+- Automatic frame extraction.
+- Manual frame selection.
+- Video preview.
+- Upload custom thumbnail.
+- Replace thumbnail.
+- Remove thumbnail.
+- Select title image.
+- Preview thumbnail before publishing.
+
+If no thumbnail is selected, generate one automatically when technically supported.
+
+The owner must be able to choose a frame from the uploaded video.
+
+## 8.2 Video information
+
+Allow the owner to enter:
+
+- Video title.
+- Description.
+- Category.
+- Child category.
+- Tags.
+- Thumbnail.
+- Publication date.
+- Author.
+- Related materials.
+- Download settings.
+- Sharing settings.
+- Display locations.
+- Custom buttons.
+
+## 8.3 Real video quality options
+
+Support actual video qualities where real encoded versions exist:
+
+- 144p.
+- 240p.
+- 360p.
+- 480p.
+- 720p.
+- 1080p.
+- Higher qualities if available.
+
+The quality selector must only show qualities that actually exist and are playable.
+
+Implement real transcoding or connect to a suitable video-processing service if necessary.
+
+Do not create fake quality options that all play the same file while pretending to be different resolutions.
+
+Preserve the original uploaded video.
+
+Display processing status and errors.
+
+## 8.4 Video player
+
+Create a professional customizable video player.
+
+Include configurable controls for:
+
+- Play.
+- Pause.
+- Volume.
+- Mute.
+- Fullscreen.
+- Timeline.
+- Playback speed.
+- Quality.
+- Subtitles.
+- Download.
+- Picture-in-picture if supported.
+- Keyboard shortcuts where supported.
+
+Allow the owner to customize:
+
+- Control bar background.
+- Control bar transparency.
+- Control bar position.
+- Control bar height.
+- Control bar color.
+- Icons.
+- Icon size.
+- Icon color.
+- Timeline color.
+- Progress color.
+- Hover color.
+- Buttons.
+- Loading animation.
+- Fullscreen appearance.
+- Mobile controls.
+- Desktop controls.
+
+## 8.5 External play button and hover appearance
+
+The large play button shown on the video thumbnail before playback must be independently customizable.
+
+Allow the owner to change:
+
+- Icon.
+- Shape.
+- Size.
+- Color.
+- Background.
+- Transparency.
+- Border.
+- Shadow.
+- Glow.
+- Animation.
+- Hover effect.
+- Hover color.
+- Bottom glow.
+- Bottom shadow color.
+- Position.
+- Opacity.
+
+Allow optional muted video preview on hover if technically supported.
+
+Never autoplay sound unexpectedly.
+
+## 8.6 Subtitles and translations
+
+Provide manual subtitle creation and editing.
+
+Support:
+
+- Multiple subtitle languages.
+- Arabic subtitles.
+- English subtitles.
+- Additional languages.
+- Subtitle enable/disable.
+- Subtitle file upload.
+- Manual subtitle entry.
+- Subtitle timing.
+- Subtitle editing.
+- Subtitle deletion.
+- Subtitle preview.
+
+Allow the owner to customize:
+
+- Font.
+- Font size.
+- Text color.
+- Background.
+- Background opacity.
+- Border.
+- Shadow.
+- Position.
+- Alignment.
+- Line spacing.
+- Mobile appearance.
+
+Do not claim automatic translation is available unless a real translation service is connected and working.
+
+## 8.7 Video detail page
+
+Every video must have its own public detail page.
+
+The page must include:
+
+- Large video player.
+- Video title.
+- Description.
+- Optional date.
+- Optional author.
+- Optional metadata.
+- Download button.
+- Share button.
+- Quality selector.
+- Subtitle selector.
+- Related materials.
+- Custom owner-created buttons.
+
+In desktop RTL layout, allow the video to appear prominently on the right as requested.
+
+Allow the owner to customize the entire detail-page layout.
+
+---
+
+# PART 9 — IMAGE LIBRARY AND IMAGE EXTRACTION
+
+Create a complete image and media library.
+
+Support:
+
+- Uploading images.
+- Multiple image formats.
+- Image preview.
+- Image editing metadata.
+- Image title.
+- Description.
+- Categories.
+- Child categories.
+- Tags.
+- Thumbnail.
+- Cover image.
+- Galleries.
+- Download settings.
+- Sharing.
+- Related images.
+- Image detail pages.
+
+Allow extraction of images from uploaded videos where supported.
+
+Allow the owner to choose extracted frames as thumbnails or publish them as images.
+
+The image library must preserve original files and avoid duplicate uploads.
+
+Allow the owner to replace or remove images safely.
+
+---
+
+# PART 10 — HOMEPAGE BUILDER
+
+Create a complete visual homepage builder.
+
+The owner must be able to add, edit, delete, reorder, hide, show, duplicate, and configure every homepage section.
+
+Support sections such as:
+
+- Hero section.
+- Featured content.
+- Latest publications.
+- Latest videos.
+- Latest images.
+- Latest poems.
+- Featured poems.
+- Articles.
+- Reports.
+- Archive.
+- Custom content sections.
+- Decorative sections.
+- Image banners.
+- Text sections.
+- Custom HTML sections.
+
+For every section, provide controls for:
+
+- Title.
+- Subtitle.
+- Background.
+- Width.
+- Height.
+- Padding.
+- Margin.
+- Alignment.
+- Number of displayed items.
+- Sorting.
+- Card style.
+- Font.
+- Text size.
+- Colors.
+- Borders.
+- Shadows.
+- Animation.
+- Visibility.
+- Desktop layout.
+- Tablet layout.
+- Mobile layout.
+
+Sections must reference existing content records rather than duplicating the actual content.
+
+Deleting a homepage section must not delete the original video, poem, or publication.
+
+---
+
+# PART 11 — MAIN NAVIGATION AND TOP BAR
+
+Create a professional navigation system.
+
+The top navigation links must be positioned in the CENTER of the navigation bar.
+
+They must not appear unintentionally shifted toward the right or left.
+
+Provide independent controls for:
+
+- Horizontal alignment.
+- Vertical alignment.
+- Spacing between links.
+- Navigation height.
+- Navigation width.
+- Menu position.
+- Font.
+- Font size.
+- Font weight.
+- Text color.
+- Background color.
+- Active link color.
+- Hover color.
+- Border.
+- Shadow.
+- Dropdown design.
+- Dropdown spacing.
+- Dropdown animations.
+- Icons.
+- Mobile menu.
+
+The owner must be able to enlarge or reduce the text and change its colors.
+
+## 11.1 Dropdown menus
+
+Support nested menus and child pages.
+
+Desktop behavior:
+
+- Dropdown opens on hover or click according to owner settings.
+
+Mobile behavior:
+
+- Dropdown opens by tapping.
+
+Allow customization of:
+
+- Dropdown width.
+- Background.
+- Text.
+- Borders.
+- Shadows.
+- Icons.
+- Animation.
+- Spacing.
+- Maximum nesting depth.
+
+Every menu item must connect to its correct page.
+
+Do not create decorative menu items that do nothing.
+
+---
+
+# PART 12 — FULL DESIGN AND APPEARANCE CONTROLS
+
+Create an extensive design system.
+
+Every visible public element must be configurable.
+
+The owner must be able to customize:
+
+- Website identity.
+- Logo.
+- Website name.
+- Subtitle.
+- Header.
+- Navigation.
+- Footer.
+- Page backgrounds.
+- Section backgrounds.
+- Cards.
+- Buttons.
+- Icons.
+- Text.
+- Fonts.
+- Borders.
+- Shadows.
+- Separators.
+- Loading animations.
+- Hover effects.
+- Responsive layouts.
+
+Use a professional, serious, elegant visual identity.
+
+Avoid childish designs, unnecessary emojis, and random decorative elements.
+
+## 12.1 Gold color identity
+
+Use a refined gold-based identity.
+
+Suggested colors:
+
+- Gold: `#B08D45`
+- Deep gold: `#8C6A2F`
+- Light gold: `#D4AF65`
+- Additional accent: `#9c932b`
+- Black: `#080808`
+- Dark background: `#151515`
+- White: `#FFFFFF`
+- Light background: `#F5F5F5`
+- Light gray: `#E7E7E7`
+- Main text: `#171717`
+- Secondary text: `#777777`
+- Border: `#D8D8D8`
+
+These are editable defaults, not fixed restrictions.
+
+## 12.2 Animated colors
+
+Implement real animated color effects.
+
+Allow the owner to configure:
+
+- One color.
+- Two colors.
+- Three colors.
+- Four colors.
+- More colors where supported.
+- Custom HEX colors.
+- Gradient direction.
+- Gradient angle.
+- Animation speed.
+- Animation duration.
+- Animation delay.
+- Continuous looping.
+- Hover-only animation.
+- Static mode.
+- Per-element animation.
+
+**Important: The moving gradient must travel from RIGHT TO LEFT when that direction is selected.**
+
+Provide a clear direction selector and a live preview.
+
+The owner must be able to apply the animated color effect independently to:
+
+- Individual words.
+- Individual letters where supported.
+- Titles.
+- Subtitles.
+- Navigation links.
+- Buttons.
+- Cards.
+- Borders.
+- Icons.
+- Video controls.
+- Section backgrounds.
+- Loading text.
+- Any selected component.
+
+Do not apply an effect globally unless the owner explicitly chooses global application.
+
+## 12.3 Typography
+
+Allow customization of:
+
+- Font family.
+- Font size.
+- Font weight.
+- Line height.
+- Letter spacing.
+- Text alignment.
+- Text color.
+- Text shadow.
+- Text decoration.
+- Arabic typography.
+- Responsive font sizes.
+
+Prevent Arabic glyphs from being clipped or separated incorrectly.
+
+## 12.4 Shadows, borders, and effects
+
+Allow controls for:
+
+- Shadow color.
+- Shadow blur.
+- Shadow spread.
+- Shadow position.
+- Border color.
+- Border width.
+- Border style.
+- Corner radius.
+- Glow.
+- Opacity.
+- Hover lift.
+- Shine sweep.
+- Transition speed.
+- Animation intensity.
+
+## 12.5 Decorative backgrounds
+
+Support:
+
+- Solid backgrounds.
+- Gradient backgrounds.
+- Uploaded images.
+- Repeating patterns.
+- Islamic geometric patterns.
+- Decorative separators.
+- Subtle textures.
+- Optional animated backgrounds.
+
+The owner must be able to upload, replace, preview, disable, and remove these backgrounds.
+
+---
+
+# PART 13 — BUTTONS, ICONS, AND CUSTOM COMPONENTS
+
+Create a central button and icon management system.
+
+For every button, allow:
+
+- Label.
+- Icon.
+- Icon position.
+- Link or action.
+- Width.
+- Height.
+- Text size.
+- Font.
+- Text color.
+- Background.
+- Gradient.
+- Border.
+- Radius.
+- Shadow.
+- Hover state.
+- Animation.
+- Visibility.
+- Responsive appearance.
+
+Provide an icon library and support SVG uploads.
+
+Allow the owner to replace icons and configure their color, size, alignment, and hover effects.
+
+Every button must perform its stated action.
+
+---
+
+# PART 14 — TRANSLATION AND LANGUAGES
+
+Provide a complete language-management system.
+
+Support Arabic as the primary RTL language.
+
+Allow additional languages such as English.
+
+The owner must be able to:
+
+- Add languages.
+- Edit language labels.
+- Choose the default language.
+- Translate page titles.
+- Translate navigation.
+- Translate buttons.
+- Translate descriptions.
+- Translate system messages.
+- Translate metadata.
+- Edit translations manually.
+- Enable or disable languages.
+- Configure RTL or LTR direction.
+
+Do not overwrite original Arabic content when translating.
+
+Store translations separately and preserve them.
+
+If an automatic translation provider is required, identify and configure the actual service. Do not display fake translation controls.
+
+---
+
+# PART 15 — CUSTOM HTML, CSS, AND JAVASCRIPT
+
+Provide a real custom-code management system.
+
+Allow the owner to add:
+
+- HTML.
+- CSS.
+- JavaScript.
+
+Allow code to be assigned to:
+
+- Entire website.
+- Specific pages.
+- Specific child pages.
+- Specific sections.
+- Specific components.
+- Selected buttons or icons.
+
+Include:
+
+- Code editor.
+- Syntax highlighting.
+- Validation.
+- Error messages.
+- Preview.
+- Enable/disable.
+- Save.
+- Version history.
+- Restore previous code.
+- Safe execution controls.
+
+Scope page-specific CSS so it does not accidentally change other pages.
+
+Never erase existing code during visual updates.
+
+Do not claim that arbitrary JavaScript works if it is blocked or not actually executed.
+
+---
+
+# PART 16 — MEDIA DETAIL PAGES, DOWNLOADS, AND SHARING
+
+Every content item must have its own detail page when enabled.
+
+Support:
+
+- Video detail pages.
+- Image detail pages.
+- Poem detail pages.
+- Article detail pages.
+- Publication detail pages.
+- Audio detail pages.
+
+Provide owner-configurable:
+
+- Download buttons.
+- Share buttons.
+- Copy-link buttons.
+- Native sharing where supported.
+- Custom buttons.
+- Related materials.
+- Metadata.
+- Publication dates.
+- Author information.
+- Tags.
+
+Downloads must retrieve the actual stored file.
+
+Sharing must use the real public URL.
+
+Allow the owner to hide any unwanted metadata independently.
+
+---
+
+# PART 17 — SEARCH AND DISCOVERY
+
+Create a working search system.
+
+Search across:
+
+- Videos.
+- Images.
+- Poems.
+- Articles.
+- Reports.
+- Publications.
+- Pages.
+- Tags.
+- Categories.
+
+Provide configurable:
+
+- Search placeholder.
+- Search button.
+- Search icon.
+- Search layout.
+- Result layout.
+- Filters.
+- Sorting.
+- Empty-result message.
+- Search visibility.
+
+Only show published and publicly accessible content to public visitors.
+
+---
+
+# PART 18 — GENERAL SETTINGS AND SITE IDENTITY
+
+Provide controls for:
+
+- Website name.
+- Logo.
+- Favicon.
+- Site image.
+- Header image.
+- Footer.
+- Description.
+- Default language.
+- Time zone.
+- Date format.
+- Social links.
+- Contact details.
+- Public access.
+- Maintenance mode.
+- Default page.
+- Default SEO settings.
+
+The owner must be able to upload, replace, preview, and remove the site image and logo.
+
+If the owner removes an image, the public website must update correctly.
+
+---
+
+# PART 19 — ADMIN PREVIEW AND LIVE APPLICATION
+
+Every important setting must include a preview where appropriate.
+
+Provide:
+
+- Preview before saving.
+- Preview after saving.
+- Desktop preview.
+- Tablet preview.
+- Mobile preview.
+- Public-page preview.
+- Video-player preview.
+- Poetry-page preview.
+- Navigation preview.
+- Color and animation preview.
+
+The preview must use the same real components and rendering logic as the published website.
+
+Do not create a preview that looks correct but does not match the public website.
+
+After saving, verify the actual public result.
+
+If the owner edits a setting, it must apply to the correct element and only the intended element.
+
+---
+
+# PART 20 — PREVENT DUPLICATION, DATA CORRUPTION, AND SILENT FAILURES
+
+Implement reliable data operations.
+
+Requirements:
+
+- Prevent duplicate submissions.
+- Prevent duplicate upload jobs.
+- Prevent duplicate content records during retries.
+- Prevent duplicate page creation from repeated requests.
+- Use unique identifiers.
+- Use safe database transactions.
+- Validate references.
+- Handle interrupted uploads.
+- Handle network failures.
+- Handle storage failures.
+- Handle database failures.
+- Display meaningful error messages.
+- Preserve user input after errors.
+- Avoid overwriting newer changes with stale data.
+- Confirm destructive operations.
+- Protect data during deployment and migrations.
+
+Do not silently ignore errors.
+
+Do not report successful operations when they have failed.
+
+---
+
+# PART 21 — RESPONSIVE DESIGN AND ACCESSIBILITY
+
+The website and administration dashboard must work on:
+
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile.
+
+Ensure:
+
+- Correct Arabic RTL layout.
+- Responsive navigation.
+- Readable typography.
+- Proper video sizing.
+- Correct image scaling.
+- Accessible controls.
+- Visible focus states.
+- Touch-friendly buttons.
+- No horizontal overflow.
+- No clipped Arabic text.
+- No overlapping sections.
+
+The owner must be able to preview each screen size.
+
+---
+
+# PART 22 — SYSTEM HEALTH AND MONITORING
+
+Create a System Health page showing:
+
+- Database connection.
+- Storage connection.
+- Upload service status.
+- Video-processing status.
+- Backup status.
+- Authentication status.
+- API errors.
+- Failed uploads.
+- Failed processing jobs.
+- Storage availability.
+- Recent application errors.
+
+Provide clear diagnostics.
+
+Alert the owner when important services fail.
+
+Do not hide errors or pretend a disconnected service is working.
+
+---
+
+# PART 23 — IMPLEMENTATION RULES: DO NOT DESTROY EXISTING WORK
+
+Before making changes:
+
+1. Inspect all supplied project files.
+2. Identify the existing application architecture.
+3. Identify existing database and storage configuration.
+4. Identify all existing content and assets.
+5. Identify existing working features.
+6. Identify broken or incomplete features.
+7. Create a backup before changing production data.
+8. Prepare a migration plan.
+9. Preserve all recoverable existing content.
+10. Document anything that cannot be recovered.
+
+Do not delete files or existing data just to simplify the implementation.
+
+Do not replace the application with an empty template.
+
+Do not remove previously requested features.
+
+Do not create a visually attractive but functionally incomplete website.
+
+Do not start a destructive rebuild before confirming how existing data will be preserved or migrated.
+
+If an existing database is already empty because of the previous failure, do not pretend the missing videos can be recovered from nowhere. Inspect the supplied files, storage configuration, and available backups, then report exactly what can be restored.
+
+---
+
+# PART 24 — FINAL TESTING AND ACCEPTANCE REQUIREMENTS
+
+Before declaring the project complete, test the following categories.
+
+## A. Data persistence
+
+- Create content.
+- Upload media.
+- Change settings.
+- Save everything.
+- Refresh.
+- Close and reopen.
+- Sign out and sign back in.
+- Restart the application.
+- Verify the same data.
+- Test backup restoration.
+
+## B. Page management
+
+- Create a main page.
+- Create child pages.
+- Reorder pages.
+- Rename pages.
+- Hide and show pages.
+- Publish and unpublish pages.
+- Assign content to child pages.
+- Verify public URLs.
+
+## C. Poetry
+
+- Create a poem.
+- Edit a poem.
+- Publish a poem.
+- Submit a poem through "شارك".
+- Verify that it reaches the owner.
+- Approve it.
+- Publish it.
+- Export it as an image.
+- Verify that it remains saved after reopening.
+
+## D. Accounts and verification
+
+- Create an account.
+- Log in and out.
+- Change profile information.
+- Submit a verification request.
+- Approve and reject requests.
+- Verify permissions.
+- Verify that private data is not exposed.
+
+## E. Video and media
+
+- Upload a video.
+- Interrupt and resume an upload.
+- Verify upload progress.
+- Generate a thumbnail.
+- Select a frame.
+- Publish the video.
+- Play it publicly.
+- Test every available quality.
+- Test subtitles.
+- Test download.
+- Test sharing.
+- Verify that the file remains available after restart.
+
+## F. Design and navigation
+
+- Change colors.
+- Apply a right-to-left animated gradient.
+- Change font size.
+- Change shadows.
+- Change backgrounds.
+- Change buttons.
+- Change icons.
+- Center the navigation links.
+- Create dropdowns.
+- Preview desktop and mobile.
+- Verify that changes affect the correct public elements.
+
+## G. Security
+
+- Test both secret codes.
+- Test incorrect codes.
+- Test unauthorized direct routes.
+- Test server-side permissions.
+- Test logout.
+- Test session expiration.
+
+## H. Production deployment
+
+- Open the public URL in an incognito window.
+- Open `/admin` in an incognito window.
+- Verify public access.
+- Verify protected admin access.
+- Verify the production database.
+- Verify cloud media storage.
+- Verify backup availability.
+- Verify that deployment does not reset data.
+
+---
+
+# PART 25 — STRICT DELIVERY RULES
+
+Do not tell me the website is complete simply because the interface has been generated.
+
+Do not count an option as functional merely because it appears on screen.
+
+Every visible setting, button, menu, icon, control, and action must be connected to its real functionality.
+
+If a feature requires an external service, configure it properly or clearly identify the exact missing requirement.
+
+Do not create fake quality selectors, fake uploads, fake backups, fake translations, fake permissions, fake verification, or fake save operations.
+
+Do not remove features to make the build easier.
+
+Do not replace permanent storage with temporary storage.
+
+Do not reset the database during deployment.
+
+Do not silently delete existing content.
+
+Do not claim that data is permanently saved until the persistence and recovery tests have passed.
+
+At the end, provide:
+
+1. The public production URL.
+2. The administrator URL.
+3. Confirmation that both URLs were tested.
+4. The database and cloud-storage status.
+5. The backup and restoration test results.
+6. The upload and media test results.
+7. The poetry submission test results.
+8. The account and verification test results.
+9. The security test results.
+10. A list of any features that still require external credentials or services.
+
+**FINAL NON-NEGOTIABLE REQUIREMENT:**
+
+Every item I create or upload, every poem I write or receive, every suggestion a visitor submits, every account, every page, every menu, every color, every animation, every button, every video-player setting, every subtitle, every design choice, every permission, and every other configuration must be saved to persistent production storage.
+
+It must remain available after refreshing, closing the browser, signing out, returning later, restarting the application, and deploying updates.
+
+It must remain unchanged until I, the owner, deliberately edit it or delete it.
+
+I must have full owner control over the entire system.
+
+**BUILD A REAL, DATA-PERSISTENT, FULLY FUNCTIONAL WEBSITE — NOT A TEMPORARY DEMO, NOT A VISUAL MOCKUP, AND NOT AN EMPTY RECONSTRUCTION.**

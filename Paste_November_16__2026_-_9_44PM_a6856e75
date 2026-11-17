@@ -1,0 +1,2597 @@
+# THE ULTIMATE MASTER SPECIFICATION — COMPLETE RECONSTRUCTION, EXPANSION, AND FULL FUNCTIONAL IMPLEMENTATION OF "أرشيف الشهيد"
+
+## ABSOLUTE PRIORITY: COMPLETE OWNER CONTROL, EXTENSIVE SETTINGS, REAL FUNCTIONALITY, AND ZERO PLACEHOLDER FEATURES
+
+Read this entire document carefully before making any changes. Also inspect every project file, uploaded asset, image, document, logo, SVG, font, configuration file, existing component, and other resource I have already provided.
+
+I am providing important project files and resources. They are part of the project and must be examined and used appropriately. Do not ignore them, replace them unnecessarily, or assume that the current website already contains everything they specify.
+
+This is a complete specification for the entire website, not a request for a small redesign.
+
+The website name is:
+
+**أرشيف الشهيد**
+
+I want a professional, elegant, comprehensive Arabic media archive website with a powerful owner administration system.
+
+The most important requirement is that I must have extensive, direct, practical control over the entire website.
+
+I do not want an attractive interface with incomplete functionality. I do not want hundreds of decorative settings that have no effect. I do not want buttons that do nothing, menus missing their options, settings that cannot be saved, features that cannot be accessed, or options that do not apply to the actual public website.
+
+I require the actual implementation behind every control.
+
+**Every visible setting must be connected to a real function. Every action must work. Every saved setting must persist. Every change must apply to the correct component. Every owner permission must be respected.**
+
+Do not consider a feature completed simply because you have created its visual interface.
+
+Do not leave hidden restrictions, incomplete menus, missing controls, fake quality options, simulated uploads, or nonfunctional configuration screens.
+
+Do not remove existing working functionality or existing data while implementing this specification.
+
+---
+
+# PART 1 — PROJECT PRESERVATION, FILE INSPECTION, AND IMPLEMENTATION STRATEGY
+
+## 1.1 Inspect all supplied project files first
+
+Before implementing anything:
+
+1. Inspect all supplied files.
+2. Identify all available images, logos, SVG files, fonts, videos, design references, code files, and documentation.
+3. Read any available project requirements.
+4. Identify existing working features.
+5. Identify incomplete features.
+6. Identify broken features.
+7. Identify missing features.
+8. Identify existing database structures and storage configurations.
+9. Identify existing routes and page components.
+10. Identify existing visual assets and their actual usage.
+
+Use the provided files and references as the foundation for the reconstruction.
+
+Do not claim to have recovered source code or hidden data from screenshots if they are not actually available.
+
+If a supplied asset is available, use it where appropriate rather than creating an unnecessary replacement.
+
+If an asset is missing or cannot be opened, report that clearly.
+
+## 1.2 Preserve existing work
+
+This instruction is critical.
+
+- Do not delete existing content.
+- Do not delete existing media.
+- Do not reset the database.
+- Do not remove saved settings.
+- Do not erase custom code.
+- Do not remove existing page structures.
+- Do not replace working upload functionality with a simpler implementation.
+- Do not overwrite working components without checking their dependencies.
+- Do not change the visual identity unnecessarily.
+- Do not rebuild working functionality merely to make the code look different.
+
+Before any risky migration or structural change, create a recoverable backup.
+
+Use controlled changes and verify them before continuing.
+
+## 1.3 Work in verified stages
+
+Implement the website in connected stages:
+
+1. Project inspection.
+2. Database and storage verification.
+3. Authentication and permissions.
+4. Page management.
+5. Content management.
+6. Upload system.
+7. Video and image processing.
+8. Video player.
+9. Subtitles and translations.
+10. Homepage and navigation.
+11. Design and appearance.
+12. Custom code system.
+13. Search and SEO.
+14. Backups and version history.
+15. Public deployment.
+16. Complete functional testing.
+
+Do not mark a stage complete until its actual functionality has been tested.
+
+---
+
+# PART 2 — COMPLETE OWNER CONTROL AND AUTHORIZATION
+
+## 2.1 Full owner permissions
+
+The website owner must have full administrative control over every supported feature.
+
+The owner must be able to:
+
+- Create.
+- Edit.
+- Rename.
+- Duplicate.
+- Delete.
+- Hide.
+- Show.
+- Enable.
+- Disable.
+- Activate.
+- Deactivate.
+- Publish.
+- Unpublish.
+- Schedule.
+- Archive.
+- Restore.
+- Reorder.
+- Move.
+- Customize.
+- Configure.
+- Preview.
+- Save.
+- Reset.
+- Import.
+- Export.
+- Assign.
+- Remove.
+- Replace.
+- Manage permissions.
+- Manage appearance.
+- Manage behavior.
+- Manage access.
+- Manage content.
+- Manage every supported setting.
+
+These capabilities must apply to pages, child pages, content, media, menus, sections, icons, buttons, colors, animations, player controls, download options, sharing options, subtitles, translations, code, and other website components.
+
+Do not restrict the owner to basic settings.
+
+Provide an advanced settings level for each major system.
+
+## 2.2 Complete permission management
+
+Create a dedicated permissions screen.
+
+The owner must be able to configure additional administrators and editors.
+
+Include permissions for:
+
+- Dashboard access.
+- Page creation.
+- Page editing.
+- Page deletion.
+- Page publication.
+- Content creation.
+- Content editing.
+- Content deletion.
+- Uploading.
+- Media deletion.
+- Video processing.
+- Thumbnail management.
+- Quality management.
+- Subtitle management.
+- Translation management.
+- Homepage editing.
+- Navigation editing.
+- Design editing.
+- Custom code editing.
+- Download settings.
+- Sharing settings.
+- SEO.
+- Search settings.
+- Backup.
+- Restore.
+- Version history.
+- User management.
+- Security settings.
+- General settings.
+
+Provide separate read, create, edit, delete, publish, and manage permissions where applicable.
+
+The owner must always retain full permissions.
+
+Enforce permissions on the server, not just by hiding dashboard buttons.
+
+## 2.3 No unexplained disabled features
+
+If a feature requires an external service, storage provider, API key, paid service, environment variable, or additional configuration:
+
+- Explain exactly what is required.
+- Provide a configuration screen.
+- Show the current connection status.
+- Show errors clearly.
+- Provide a test connection function where applicable.
+- Explain what functionality is unavailable until configured.
+- Do not pretend that the feature is working.
+- Do not silently disable the feature.
+
+---
+
+# PART 3 — ADMINISTRATION ROUTE AND PUBLIC WEBSITE
+
+## 3.1 Separate the public website from the administration dashboard
+
+The administration dashboard must not appear on the public homepage.
+
+The administration dashboard must have a dedicated route:
+
+`/admin`
+
+Requirements:
+
+- Public visitors see only the public website.
+- The public homepage must not display the admin dashboard.
+- Admin controls must not appear publicly.
+- The owner accesses the dashboard directly through `/admin`.
+- The dashboard requires authentication.
+- All administrative API operations must be protected.
+- Unauthorized users must not access private administrative information.
+- Refreshing the admin route must work.
+- The owner must be able to log out securely.
+
+Do not create an administration panel that is embedded in the public homepage.
+
+## 3.2 Public access
+
+The public website must be accessible to everyone with its public URL.
+
+Visitors must not need to create an account or log in to browse published content.
+
+The owner must be able to manage public visibility and publishing status.
+
+## 3.3 Final deployment URLs
+
+Provide two actual deployed URLs:
+
+1. **PUBLIC WEBSITE:** A real public URL accessible to everyone.
+2. **ADMIN DASHBOARD:** The public URL followed by `/admin`, protected by owner authentication.
+
+Do not send preview-only links as final deployment links.
+
+Test the public URL from an incognito browser and a separate browser session.
+
+Test the admin route separately.
+
+Verify direct access, page refreshes, media detail URLs, and published content.
+
+Never claim that a link works publicly unless you have tested it.
+
+---
+
+# PART 4 — COMPLETE ADMIN DASHBOARD STRUCTURE
+
+Create a comprehensive Arabic RTL administration dashboard with the same professional visual identity as the public website.
+
+The dashboard must have a clear sidebar, organized menus, expandable submenus, searchable settings, advanced settings, and a consistent interface.
+
+The following menu structure is required.
+
+## 4.1 لوحة المعلومات — Overview
+
+Include:
+
+- Total pages.
+- Total child pages.
+- Published content.
+- Draft content.
+- Scheduled content.
+- Archived content.
+- Total videos.
+- Total images.
+- Total documents.
+- Total audio files.
+- Total storage usage.
+- Available storage information where provided by the storage provider.
+- Recent uploads.
+- Recent publications.
+- Recent edits.
+- Recent errors.
+- Failed uploads.
+- Pending processing jobs.
+- Video processing status.
+- Thumbnail processing status.
+- Storage connection status.
+- Database connection status.
+- Website health.
+- Deployment status where available.
+
+Allow me to customize the overview:
+
+- Add dashboard cards.
+- Remove cards.
+- Reorder cards.
+- Hide cards.
+- Change card colors.
+- Change icons.
+- Change labels.
+- Set the maximum number of recent activities.
+- Choose which statistics appear.
+
+## 4.2 إدارة الصفحات — Page Management
+
+This is one of the most important sections.
+
+Provide the full page tree, child-page management, page creation, page settings, navigation assignment, content assignment, page visibility, and page-specific appearance.
+
+Detailed requirements are described in Part 5.
+
+## 4.3 إدارة المحتوى — Content Management
+
+Provide content creation, editing, publication, scheduling, categories, page assignment, related materials, metadata, downloads, sharing, and bulk management.
+
+Detailed requirements are described in Part 6.
+
+## 4.4 مكتبة الفيديوهات — Video Library
+
+Include:
+
+- Video list.
+- Video preview.
+- Search.
+- Filters.
+- Categories.
+- Page assignment.
+- Child-page assignment.
+- Thumbnail management.
+- Quality versions.
+- Processing status.
+- Subtitles.
+- Translations.
+- Download settings.
+- Sharing settings.
+- Player settings.
+- Related materials.
+- Video metadata.
+- Replace original file.
+- Retry processing.
+- Archive.
+- Restore.
+- Delete.
+
+## 4.5 مكتبة الصور والوسائط — Image and Media Library
+
+Include:
+
+- Images.
+- Videos.
+- Audio.
+- Documents.
+- SVG files.
+- Thumbnails.
+- Logos.
+- Background images.
+- Icons.
+- Other supported media.
+
+Provide:
+
+- Upload.
+- Preview.
+- Search.
+- Filter.
+- Sort.
+- Rename.
+- Replace.
+- Download.
+- Delete.
+- Reuse.
+- Assign to pages.
+- Assign to child pages.
+- View file details.
+- View dimensions.
+- View format.
+- View file size.
+- View storage status.
+- View usage locations.
+
+Prevent accidental deletion of assets that are currently in use. Show the pages and components using an asset before deletion.
+
+## 4.6 مركز الرفع — Upload Center
+
+This must be a complete upload system, not a basic file input.
+
+See Part 7.
+
+## 4.7 منشئ الصفحة الرئيسية — Homepage Builder
+
+Provide full visual editing, section creation, drag-and-drop ordering, content selection, layout configuration, and responsive settings.
+
+See Part 11.
+
+## 4.8 إدارة القوائم والتنقل — Navigation Management
+
+Provide full navigation and dropdown configuration.
+
+See Part 12.
+
+## 4.9 إدارة الميزات والأكواد — Feature and Code Management
+
+Provide complete custom code, component configuration, feature activation, code assignment, validation, preview, and versioning.
+
+See Part 18.
+
+## 4.10 التصميم والمظهر — Design and Appearance
+
+Provide comprehensive controls for colors, typography, backgrounds, gradients, animations, shadows, borders, icons, buttons, and component styles.
+
+See Part 14.
+
+## 4.11 التخزين السحابي — Cloud Storage
+
+Provide storage provider configuration, connection status, file management, upload limits, storage paths, and error reporting.
+
+See Part 8.
+
+## 4.12 إدارة البحث — Search Management
+
+Provide complete search configuration.
+
+See Part 19.
+
+## 4.13 النسخ الاحتياطي والاستعادة — Backup and Restore
+
+Provide database backups, configuration backups, recovery options, export, restore, and confirmation.
+
+See Part 22.
+
+## 4.14 سجل الإصدارات — Version History
+
+Provide change history, previous versions, comparison, and restore.
+
+See Part 22.
+
+## 4.15 الأمان والصلاحيات — Security and Permissions
+
+Provide authentication, owner permissions, additional administrator accounts, access control, and security logs.
+
+## 4.16 الإعدادات العامة — General Settings
+
+Provide complete website-wide settings.
+
+## 4.17 حالة النظام — System Health
+
+Provide real system health information, storage connectivity, database connectivity, upload processing, background jobs, and errors.
+
+**Every menu above must contain its actual required controls and settings. Do not create empty menu pages or incomplete placeholder screens.**
+
+---
+
+# PART 5 — CENTRALIZED PAGE MANAGEMENT AND CHILD PAGES
+
+## 5.1 Complete hierarchical page tree
+
+Create a centralized page tree with unlimited practical flexibility subject to sensible technical limits.
+
+Example:
+
+- الرئيسية
+- المنشورات
+  - القسم 1
+  - القسم 2
+  - القسم 3
+- الفيديوهات
+  - المقابلات
+  - التقارير
+  - الأفلام الوثائقية
+  - الأرشيف
+- الصور
+  - الصور التاريخية
+  - المناسبات
+  - المعارض
+- المقالات
+- التقارير
+- الأرشيف
+- من نحن
+- اتصل بنا
+
+I must be able to create my own pages and branches.
+
+Do not hardcode this example as an unchangeable structure.
+
+## 5.2 Page creation controls
+
+When creating a page, provide:
+
+- Arabic page name.
+- Optional English name.
+- Page type.
+- Parent page.
+- Child page status.
+- URL slug.
+- Description.
+- Page icon.
+- Page thumbnail.
+- Page banner.
+- Background.
+- Template.
+- Visibility.
+- Publication status.
+- Navigation assignment.
+- Homepage assignment.
+- SEO title.
+- SEO description.
+- Custom code assignment.
+- Page layout.
+- Content display settings.
+
+Allow creation of a page as:
+
+- Main page.
+- Child page.
+- Nested child page where supported.
+
+## 5.3 Page tree actions
+
+For each page:
+
+- Create child.
+- Edit.
+- Rename.
+- Duplicate.
+- Delete.
+- Hide.
+- Show.
+- Publish.
+- Unpublish.
+- Move.
+- Reorder.
+- Change parent.
+- Change URL.
+- Preview.
+- Open public page.
+- Configure appearance.
+- Configure content display.
+- Configure navigation.
+- Configure advanced settings.
+
+Provide drag-and-drop page organization.
+
+Prevent accidental circular parent relationships.
+
+## 5.4 Easy content assignment
+
+When publishing any item, show the actual page tree.
+
+The owner must select:
+
+- Main page.
+- Child page.
+- Optional additional display locations.
+
+Allow multiple destinations without duplicating the original content record.
+
+The category list must update automatically whenever pages are added, renamed, moved, hidden, or deleted.
+
+Do not use a separate static category list disconnected from Page Management.
+
+## 5.5 Parent page behavior
+
+For every parent page, provide options to:
+
+- Display only content assigned directly to the parent.
+- Display selected child-page content.
+- Display all child-page content.
+- Display a combination of direct and child content.
+- Show child-page navigation.
+- Hide child-page navigation.
+- Group content by child page.
+- Sort content.
+- Filter by type.
+- Set a maximum number of items.
+- Enable pagination.
+- Configure the empty-state message.
+
+Avoid duplicated results when parent and child content are combined.
+
+## 5.6 Complete individual page settings
+
+Each page must have its own extensive settings panel.
+
+Include:
+
+**Identity**
+- Page title.
+- Subtitle.
+- Description.
+- URL.
+- Icon.
+- Logo where applicable.
+- Thumbnail.
+- Banner.
+- Metadata.
+
+**Visibility**
+- Public visibility.
+- Draft status.
+- Published status.
+- Scheduled publication.
+- Navigation visibility.
+- Search visibility.
+- Homepage visibility.
+- Indexing preference.
+
+**Layout**
+- Page template.
+- Content width.
+- Maximum width.
+- Minimum height.
+- Section arrangement.
+- Grid layout.
+- Column count.
+- Card layout.
+- Sidebar visibility.
+- Header visibility.
+- Footer visibility.
+- Breadcrumbs.
+- Pagination.
+- Infinite scrolling where supported.
+
+**Typography**
+- Font family.
+- Font size.
+- Font weight.
+- Text color.
+- Line height.
+- Letter spacing.
+- Alignment.
+- Text direction.
+- Title styling.
+- Description styling.
+
+**Appearance**
+- Background color.
+- Background image.
+- Background position.
+- Background size.
+- Background repeat.
+- Gradient.
+- Animated gradient.
+- Borders.
+- Border radius.
+- Shadows.
+- Glow.
+- Hover effects.
+- Separators.
+- Icons.
+- Decorative patterns.
+
+**Content**
+- Content types.
+- Selected child pages.
+- Sort order.
+- Maximum items.
+- Featured items.
+- Related materials.
+- Empty-state behavior.
+- Search and filtering.
+
+**Advanced**
+- Page-specific CSS.
+- Page-specific JavaScript where safely supported.
+- Custom HTML sections.
+- SEO.
+- Social sharing metadata.
+- Responsive settings.
+- Access controls.
+- Version history.
+
+Every setting must apply to the correct page only.
+
+---
+
+# PART 6 — COMPLETE CONTENT MANAGEMENT AND PUBLISHING
+
+## 6.1 Supported content types
+
+Support:
+
+- Videos.
+- Images.
+- Image galleries.
+- Articles.
+- News.
+- Reports.
+- Text posts.
+- Poetry.
+- Audio.
+- Documents.
+- Historical records.
+- Other owner-defined content types.
+
+Allow the owner to create custom content types with configurable fields.
+
+## 6.2 Unified publishing workflow
+
+Publishing must be straightforward.
+
+The owner should be able to:
+
+1. Open the upload or content creation screen.
+2. Select the content type.
+3. Upload a new file or choose existing media.
+4. Enter the title.
+5. Enter the description.
+6. Select a thumbnail where applicable.
+7. Select the main page.
+8. Select the child page.
+9. Select optional additional display locations.
+10. Set the publication status.
+11. Configure download and sharing.
+12. Configure related materials.
+13. Save as draft or publish.
+
+Do not force me through unnecessary screens.
+
+## 6.3 Content fields
+
+Provide configurable fields for:
+
+- Title.
+- Subtitle.
+- Description.
+- Main content.
+- Main media.
+- Thumbnail.
+- Additional images.
+- Publication date.
+- Custom historical date.
+- Author or source.
+- Location.
+- Reference number.
+- Tags.
+- Categories.
+- Main page.
+- Child page.
+- Additional destinations.
+- Featured status.
+- Visibility.
+- Download permission.
+- Sharing permission.
+- Related content.
+- Custom metadata.
+- SEO.
+
+I must be able to add, rename, reorder, hide, show, and delete custom fields.
+
+## 6.4 Publishing statuses
+
+Support:
+
+- Draft.
+- Published.
+- Scheduled.
+- Unpublished.
+- Hidden.
+- Archived.
+- Restored.
+
+Provide bulk actions.
+
+## 6.5 Homepage and multiple display locations
+
+A single content item can appear in multiple sections without creating duplicate database records.
+
+If I delete the original content item, remove it from every location.
+
+If I hide it from one location, allow it to remain visible in other locations where appropriate.
+
+Provide a clear list of all locations where each item appears.
+
+---
+
+# PART 7 — ADVANCED, FAST, RELIABLE UPLOAD SYSTEM
+
+This is a critical system.
+
+The upload feature must be genuinely implemented and tested with real files.
+
+## 7.1 Supported uploads
+
+Support:
+
+- Videos.
+- Images.
+- Multiple images.
+- Audio.
+- Documents.
+- PDFs.
+- SVG files.
+- Thumbnails.
+- Logos.
+- Background images.
+- Other configured file types.
+
+Provide configurable file type restrictions and maximum file sizes based on actual infrastructure capabilities.
+
+## 7.2 Upload interface
+
+Include:
+
+- Drag and drop.
+- File selection.
+- Multiple selection.
+- Upload queue.
+- Real progress percentage.
+- Uploaded bytes.
+- Total bytes.
+- Upload speed.
+- Estimated remaining time where reliable.
+- Current status.
+- Success state.
+- Failure state.
+- Cancel.
+- Retry.
+- Resume where supported.
+- Remove from queue.
+- Duplicate detection.
+- File validation.
+- Error details.
+- Upload history.
+
+The interface must be responsive and easy to use.
+
+## 7.3 Fast upload
+
+Use an appropriate upload architecture:
+
+- Direct-to-object-storage uploads where supported.
+- Multipart uploads for large files.
+- Chunked uploads.
+- Resumable uploads.
+- Background processing.
+- Efficient file transfer.
+- Appropriate upload concurrency limits.
+
+Do not route very large files through an unsuitable server endpoint if direct storage upload is available.
+
+Prevent multiple duplicate upload jobs.
+
+If an upload fails, preserve the original source file locally and preserve any successfully stored file.
+
+Do not lose the original video because thumbnail extraction or transcoding failed.
+
+## 7.4 Video upload up to approximately 30 minutes
+
+Support video uploads up to approximately 30 minutes, subject to actual configured hosting, storage, and processing limits.
+
+Test:
+
+- Small video.
+- Large video.
+- Long video.
+- Unsupported format.
+- Interrupted upload.
+- Retry.
+- Resume.
+- Storage failure.
+- Thumbnail failure.
+- Processing failure.
+
+Report actual infrastructure limitations clearly.
+
+## 7.5 Automatic image and thumbnail extraction
+
+For videos:
+
+- Attempt to extract a frame automatically.
+- Generate a thumbnail from the midpoint where supported.
+- Allow the owner to select a different timestamp.
+- Extract multiple preview frames where supported.
+- Display frame previews.
+- Allow manual thumbnail upload.
+- Allow thumbnail replacement.
+- Allow thumbnail deletion.
+- Allow crop and positioning adjustments.
+
+For images:
+
+- Generate previews and appropriate image derivatives where supported.
+- Preserve original image files.
+- Allow alternative thumbnail versions.
+- Allow crop and focal-point controls.
+
+If image extraction or processing fails, show the actual error and preserve the original.
+
+## 7.6 Upload completion rules
+
+A file is successful only when:
+
+1. The file has been transferred.
+2. The storage provider confirms the stored object.
+3. The database record is successfully saved.
+4. The file can be retrieved.
+5. Any required processing status is correctly recorded.
+
+Never display a successful upload message before these conditions are satisfied.
+
+---
+
+# PART 8 — CLOUD STORAGE AND DATABASE
+
+## 8.1 Persistent storage
+
+Use real persistent storage.
+
+Do not rely on browser localStorage or temporary memory as the primary content storage system.
+
+Use a suitable provider such as:
+
+- Cloudflare R2.
+- Amazon S3.
+- Firebase Storage.
+- Google Cloud Storage.
+- Another supported S3-compatible service.
+
+Choose an appropriate provider based on the existing environment.
+
+## 8.2 Storage management controls
+
+Provide:
+
+- Provider selection where supported.
+- Connection status.
+- Configuration fields.
+- Secure credential handling.
+- Test connection.
+- Storage usage.
+- File count.
+- File organization.
+- Upload limits.
+- Storage paths.
+- File deletion.
+- File replacement.
+- Orphaned file detection.
+- Failed operation logs.
+
+Do not expose secrets in client-side code.
+
+## 8.3 Database persistence
+
+Store all website records in a persistent database:
+
+- Pages.
+- Child pages.
+- Content.
+- Media metadata.
+- Upload records.
+- Thumbnails.
+- Video versions.
+- Subtitles.
+- Translations.
+- Navigation.
+- Homepage sections.
+- Appearance settings.
+- Animated gradients.
+- Custom code.
+- Permissions.
+- Related materials.
+- SEO.
+- General settings.
+- Version history.
+
+Use appropriate database relationships and unique identifiers.
+
+Prevent duplicate records and inconsistent relationships.
+
+---
+
+# PART 9 — COMPLETE VIDEO PLAYER AND CONTROL SYSTEM
+
+## 9.1 Video player
+
+Create a complete, professional video player.
+
+Support:
+
+- Play.
+- Pause.
+- Volume.
+- Mute.
+- Fullscreen.
+- Timeline.
+- Seek.
+- Playback speed.
+- Quality selection.
+- Subtitles.
+- Settings.
+- Download.
+- Picture-in-picture where supported.
+- Keyboard controls.
+- Mobile touch controls.
+- Buffered progress.
+- Playback progress.
+- Loading state.
+- Error state.
+- Poster image.
+- Preview behavior.
+
+## 9.2 Custom player bar
+
+Allow the owner to customize:
+
+- Bar background.
+- Background opacity.
+- Bar height.
+- Bar position.
+- Icon size.
+- Icon color.
+- Active icon color.
+- Hover color.
+- Button background.
+- Button border.
+- Button radius.
+- Button spacing.
+- Timeline height.
+- Timeline shape.
+- Timeline background.
+- Played progress color.
+- Buffered progress color.
+- Timeline hover color.
+- Time display.
+- Menu appearance.
+- Menu width.
+- Menu background.
+- Menu text.
+- Menu icons.
+- Menu borders.
+- Menu shadows.
+- Mobile control layout.
+
+Each control must have independent visibility and styling options.
+
+## 9.3 Player icons
+
+The owner must be able to:
+
+- Choose from an available icon library.
+- Upload a custom SVG icon.
+- Upload an image icon where appropriate.
+- Change icon size.
+- Change icon color.
+- Change background.
+- Change hover state.
+- Change active state.
+- Change position.
+- Replace an icon.
+- Remove an icon.
+- Restore the default icon.
+
+Ensure uploaded SVGs are validated and safely rendered.
+
+Do not use emoji as a replacement for proper player icons.
+
+## 9.4 External play button
+
+The play button shown on the thumbnail before opening the video must be independently customizable.
+
+Include:
+
+- Icon.
+- Icon shape.
+- Size.
+- Background.
+- Color.
+- Opacity.
+- Border.
+- Border thickness.
+- Border radius.
+- Shadow.
+- Glow.
+- Position.
+- Hover animation.
+- Hover background.
+- Hover icon color.
+- Bottom shadow color.
+- Bottom glow.
+- Pulse animation.
+- Scale effect.
+- Transition speed.
+
+Allow muted autoplay preview on hover when supported.
+
+Never automatically play sound.
+
+## 9.5 Animated loading indicator
+
+Provide configurable loading indicators.
+
+Allow:
+
+- Default spinner.
+- Custom spinner.
+- SVG animation.
+- Text animation.
+- Custom color.
+- Background.
+- Size.
+- Speed.
+- Duration.
+- Position.
+- Opacity.
+- Enable/disable.
+- Per-player assignment.
+
+Support the existing Arabic animated text concept where desired:
+
+- الشهيد
+- صدام
+
+Allow the owner to edit the words, colors, sizes, animation speed, and order.
+
+The text must remain correctly shaped and centered in Arabic.
+
+Do not crop letters, split Arabic words incorrectly, add unwanted underlines, or make the text excessively large.
+
+---
+
+# PART 10 — REAL VIDEO QUALITIES AND PROCESSING
+
+## 10.1 Actual quality versions
+
+Support real video versions where the infrastructure allows:
+
+- 144p.
+- 240p.
+- 360p.
+- 480p.
+- 720p.
+- 1080p.
+- Higher resolutions when genuinely available.
+
+Do not display quality options that do not correspond to actual playable files or streams.
+
+## 10.2 Processing workflow
+
+Where supported, use an appropriate media-processing service or transcoding tool.
+
+Workflow:
+
+1. Store original video.
+2. Register original metadata.
+3. Create a processing job.
+4. Generate selected quality versions.
+5. Validate each output.
+6. Store each version.
+7. Associate each version with the original.
+8. Update processing status.
+9. Display only successfully verified qualities.
+
+Provide:
+
+- Processing progress.
+- Processing status.
+- Retry.
+- Cancel where supported.
+- Error information.
+- Generated quality list.
+- Default quality.
+- Enable/disable each quality.
+- Delete generated variants.
+- Regenerate selected variants.
+
+Preserve the original at all times.
+
+Prevent duplicate processing jobs and duplicate quality records.
+
+If transcoding is not configured, clearly explain the missing requirement instead of displaying fake quality options.
+
+## 10.3 Playback validation
+
+Verify that each quality version:
+
+- Exists.
+- Can be retrieved.
+- Has the correct format.
+- Plays successfully.
+- Is associated with the correct video.
+- Appears in the selector only after validation.
+
+---
+
+# PART 11 — SUBTITLES, TRANSLATIONS, AND LANGUAGE MANAGEMENT
+
+## 11.1 Subtitle editor
+
+I must be able to create subtitles manually.
+
+Include:
+
+- Add subtitle line.
+- Edit line.
+- Delete line.
+- Start time.
+- End time.
+- Text.
+- Language.
+- Sequence.
+- Preview.
+- Synchronization.
+- Import subtitle file where supported.
+- Export subtitle file where supported.
+
+## 11.2 Multiple languages
+
+Support multiple subtitle languages.
+
+Allow:
+
+- Arabic.
+- English.
+- Other languages.
+- Default language.
+- Language display names.
+- Language-specific styling.
+- Enable/disable each language.
+- Set default subtitle state.
+
+Do not pretend that a translation exists when it has not been supplied or generated successfully.
+
+## 11.3 Subtitle appearance
+
+Allow customization of:
+
+- Font.
+- Font size.
+- Font weight.
+- Text color.
+- Background color.
+- Background transparency.
+- Text outline.
+- Text shadow.
+- Alignment.
+- Position.
+- Bottom offset.
+- Padding.
+- Border radius.
+- Maximum line width.
+- Line spacing.
+
+## 11.4 Website translation settings
+
+Provide language management for the website interface where supported.
+
+Allow:
+
+- Add language.
+- Remove language.
+- Set default language.
+- Edit translated labels.
+- Edit menu labels.
+- Edit button labels.
+- Edit error messages.
+- Edit page labels.
+- Edit navigation text.
+- Set RTL or LTR per language.
+- Configure language switcher appearance.
+
+The primary website must remain Arabic-first and RTL.
+
+All translation settings must be saved and applied.
+
+---
+
+# PART 12 — HOMEPAGE BUILDER AND COMPLETE NAVIGATION MANAGEMENT
+
+## 12.1 Homepage editor
+
+Provide a full visual editor.
+
+Every homepage component must be manageable.
+
+Include:
+
+- Header.
+- Logo.
+- Site image.
+- Main navigation.
+- Dropdown menus.
+- Hero section.
+- Banner.
+- Featured materials.
+- Latest posts.
+- Latest videos.
+- Image galleries.
+- Articles.
+- Reports.
+- Archives.
+- Related materials.
+- Custom sections.
+- Footer.
+
+For every section, provide:
+
+- Add.
+- Edit.
+- Duplicate.
+- Delete.
+- Hide.
+- Show.
+- Enable.
+- Disable.
+- Reorder.
+- Drag and drop.
+- Rename.
+- Change title.
+- Change description.
+- Change layout.
+- Change width.
+- Change height.
+- Change spacing.
+- Change background.
+- Change colors.
+- Change borders.
+- Change shadows.
+- Change icons.
+- Change buttons.
+- Change animations.
+- Change content source.
+- Change maximum item count.
+- Configure pagination.
+- Configure responsive behavior.
+
+## 12.2 Main navigation
+
+Create a fully configurable navigation system.
+
+Allow:
+
+- Add main menu item.
+- Add child menu item.
+- Add nested dropdown.
+- Rename.
+- Delete.
+- Duplicate.
+- Reorder.
+- Change destination.
+- Link to internal page.
+- Link to external URL.
+- Change icon.
+- Hide/show.
+- Open in same tab.
+- Open in new tab.
+- Set visibility conditions.
+- Set maximum visible items.
+
+## 12.3 Navigation appearance
+
+Allow independent settings for:
+
+- Menu background.
+- Menu text.
+- Hover text.
+- Active text.
+- Hover background.
+- Dropdown background.
+- Dropdown text.
+- Icon.
+- Icon size.
+- Font.
+- Font size.
+- Font weight.
+- Spacing.
+- Padding.
+- Height.
+- Border.
+- Shadow.
+- Radius.
+- Animation.
+- Transition speed.
+- Alignment.
+- Mobile layout.
+
+Desktop dropdowns must work with hover.
+
+Mobile dropdowns must work with touch and tap.
+
+## 12.4 Site logo and site image
+
+The logo and site image must be separately configurable.
+
+For each, provide:
+
+- Upload.
+- Preview.
+- Replace.
+- Remove.
+- Hide.
+- Restore.
+- Size.
+- Width.
+- Height.
+- Crop.
+- Position.
+- Fit mode.
+- Opacity.
+- Background.
+- Link destination.
+- Open in same tab or new tab.
+- Desktop version.
+- Mobile version where supported.
+
+Fix the existing problem where the site image cannot be removed or does not appear.
+
+The owner must be able to remove it and confirm that it disappears from the actual public site.
+
+Never display a broken image placeholder.
+
+---
+
+# PART 13 — CONTENT DETAIL PAGES, DOWNLOADS, AND SHARING
+
+## 13.1 Separate detail page for every item
+
+Every published content item must have its own working public URL.
+
+Examples:
+
+- Video detail page.
+- Image detail page.
+- Article detail page.
+- Audio detail page.
+- Document detail page.
+
+## 13.2 Video detail page layout
+
+Provide configurable areas for:
+
+- Video player.
+- Title.
+- Description.
+- Date.
+- Metadata.
+- Related materials.
+- Download button.
+- Share button.
+- Subtitle controls.
+- Quality controls.
+- Custom buttons.
+
+Preserve the requested RTL layout and reference design, including placing the video prominently on the right side where applicable.
+
+## 13.3 Download controls
+
+The owner must control:
+
+- Enable/disable download.
+- Download button visibility.
+- Button title.
+- Button icon.
+- Icon size.
+- Icon color.
+- Button color.
+- Background.
+- Border.
+- Radius.
+- Shadow.
+- Hover.
+- Position.
+- Download filename where supported.
+- Available downloadable video qualities.
+- Download permissions per content type.
+
+Downloads must retrieve the actual stored file.
+
+Do not create fake download links.
+
+## 13.4 Sharing controls
+
+Support:
+
+- Copy public link.
+- Native sharing where supported.
+- Share URL.
+- Share title.
+- Share description.
+- Share image.
+- Custom sharing buttons where supported.
+
+Allow the owner to configure the appearance and visibility of sharing controls.
+
+## 13.5 Custom buttons
+
+Allow the owner to add custom buttons to content detail pages.
+
+Each button must have:
+
+- Text.
+- Icon.
+- Destination.
+- Action.
+- Background.
+- Text color.
+- Border.
+- Shadow.
+- Hover effect.
+- Position.
+- Visibility.
+- New-tab behavior.
+- Enable/disable.
+
+---
+
+# PART 14 — COMPLETE DESIGN, COLORS, AND APPEARANCE EDITOR
+
+This section must be extremely comprehensive.
+
+I want to control the appearance of every supported website component.
+
+## 14.1 Color management
+
+Provide color settings for:
+
+- Primary color.
+- Secondary color.
+- Accent color.
+- Gold color.
+- Background.
+- Text.
+- Secondary text.
+- Borders.
+- Icons.
+- Buttons.
+- Cards.
+- Navigation.
+- Player.
+- Loading indicators.
+- Sections.
+- Separators.
+- Footer.
+- Dropdowns.
+- Information boxes.
+
+Allow:
+
+- Color picker.
+- HEX input.
+- RGB input where supported.
+- Opacity.
+- Saved color palettes.
+- Reset.
+- Preview.
+- Per-component assignment.
+
+Use this palette as the design direction:
+
+- Main gold: `#B08D45`
+- Dark gold: `#8C6A2F`
+- Light gold: `#D4AF65`
+- Accent: `#9c932b`
+
+Preserve the professional green, black, white, grey, and gold visual direction.
+
+## 14.2 Animated colors and gradients
+
+This is mandatory.
+
+Create a complete animated color editor.
+
+Allow animated gradients on:
+
+- Main titles.
+- Section headings.
+- Text.
+- Buttons.
+- Borders.
+- Icons.
+- Navigation.
+- Cards.
+- Player controls.
+- Loading text.
+- Backgrounds.
+- Separators.
+- Custom components.
+
+Provide:
+
+- One color.
+- Two colors.
+- Three colors.
+- Four colors.
+- Multiple custom color stops.
+- Custom HEX values.
+- Gradient direction.
+- Gradient angle.
+- Animation speed.
+- Animation duration.
+- Animation delay.
+- Animation direction.
+- Reverse.
+- Continuous loop.
+- Pause.
+- Resume.
+- Repeat behavior.
+- Opacity.
+- Hover animation.
+- Active animation.
+- Individual component selection.
+- Save presets.
+- Duplicate presets.
+- Delete presets.
+
+The animation must actually move and continue smoothly.
+
+Do not use a static gradient while claiming it is animated.
+
+Do not apply an animation to components I did not select.
+
+Do not restart or duplicate animation instances unnecessarily after repeated saves or page refreshes.
+
+## 14.3 Typography
+
+Provide:
+
+- Font family.
+- Font upload where supported.
+- Font size.
+- Font weight.
+- Line height.
+- Letter spacing.
+- Word spacing.
+- Text color.
+- Gradient text.
+- Animated text color.
+- Alignment.
+- Text direction.
+- Text transform where appropriate.
+- Text shadow.
+- Text outline.
+- Responsive font size.
+- Arabic font settings.
+
+All Arabic text must display correctly.
+
+## 14.4 Shadows
+
+Provide:
+
+- Shadow enable/disable.
+- Shadow color.
+- Opacity.
+- Blur.
+- Spread.
+- Horizontal offset.
+- Vertical offset.
+- Inset or outer shadow where supported.
+- Hover shadow.
+- Active shadow.
+
+## 14.5 Borders and shapes
+
+Provide:
+
+- Border enable/disable.
+- Border color.
+- Border thickness.
+- Border style.
+- Border opacity.
+- Radius.
+- Individual corner radius.
+- Hover border.
+- Gradient border where supported.
+- Shape presets.
+
+## 14.6 Backgrounds
+
+Provide:
+
+- Solid color.
+- Gradient.
+- Animated gradient.
+- Background image.
+- Background image position.
+- Background size.
+- Background repeat.
+- Background attachment where supported.
+- Background overlay.
+- Overlay opacity.
+- Background video where supported.
+- Decorative patterns.
+- Islamic geometric patterns.
+- Custom uploaded backgrounds.
+
+## 14.7 Animation system
+
+Provide:
+
+- Animation type.
+- Duration.
+- Speed.
+- Delay.
+- Direction.
+- Repeat count.
+- Infinite repeat.
+- Easing.
+- Hover trigger.
+- Scroll trigger.
+- Entrance trigger.
+- Exit trigger.
+- Enable/disable.
+- Reduced-motion behavior.
+
+## 14.8 Component-specific appearance
+
+Provide independent controls for:
+
+- Buttons.
+- Icons.
+- Cards.
+- Menus.
+- Dropdowns.
+- Titles.
+- Paragraphs.
+- Separators.
+- Images.
+- Thumbnails.
+- Video player.
+- Loading indicators.
+- Metadata boxes.
+- Related-content cards.
+- Download buttons.
+- Share buttons.
+
+Do not make all components share one unchangeable style.
+
+---
+
+# PART 15 — ICON LIBRARY AND SYMBOL MANAGEMENT
+
+Create a complete icon management system.
+
+The owner must be able to select, customize, replace, upload, and remove icons.
+
+Provide:
+
+- Available icon library.
+- Search icons.
+- Icon categories.
+- SVG upload.
+- Image upload for supported icon use.
+- Icon preview.
+- Icon size.
+- Icon color.
+- Hover color.
+- Active color.
+- Background.
+- Border.
+- Radius.
+- Shadow.
+- Position.
+- Alignment.
+- Spacing.
+- Animation.
+- Visibility.
+- Replacement.
+- Removal.
+- Restore default.
+
+Provide icon controls for:
+
+- Navigation.
+- Dropdown menus.
+- Buttons.
+- Download.
+- Share.
+- Search.
+- Play.
+- Pause.
+- Volume.
+- Fullscreen.
+- Settings.
+- Subtitles.
+- Quality.
+- Related materials.
+- Page headings.
+- Loading.
+- Footer.
+- Custom sections.
+
+Use consistent professional icons, not random emojis.
+
+Allow the owner to upload custom SVG icons and assign them to specific controls.
+
+Validate SVG files and prevent unsafe content.
+
+---
+
+# PART 16 — IMAGE, GALLERY, AND THUMBNAIL MANAGEMENT
+
+Provide complete image settings.
+
+For each image:
+
+- Upload.
+- Preview.
+- Replace.
+- Remove.
+- Hide.
+- Show.
+- Crop.
+- Resize.
+- Position.
+- Fit mode.
+- Aspect ratio.
+- Border.
+- Radius.
+- Shadow.
+- Opacity.
+- Hover effect.
+- Animation.
+- Link destination.
+- Alt text.
+- Caption.
+- Description.
+- Page assignment.
+- Related materials.
+
+For galleries:
+
+- Add images.
+- Remove images.
+- Reorder.
+- Set cover image.
+- Set grid layout.
+- Set maximum visible images.
+- Set columns.
+- Set spacing.
+- Set image ratio.
+- Enable lightbox where supported.
+- Enable navigation.
+- Configure captions.
+- Configure mobile layout.
+
+All image paths must remain valid.
+
+Do not display images that were deleted or moved without updating their references.
+
+Do not create duplicate thumbnails when the same source file is reused.
+
+---
+
+# PART 17 — RELATED MATERIALS, METADATA, AND INFORMATION BOXES
+
+Create a complete related-content manager.
+
+Allow manual and automatic related items.
+
+Support:
+
+- Related videos.
+- Related images.
+- Related articles.
+- Related reports.
+- Related documents.
+- Related audio.
+- Related posts.
+
+Controls:
+
+- Add.
+- Remove.
+- Reorder.
+- Search.
+- Filter.
+- Choose source.
+- Choose content types.
+- Set maximum number.
+- Set display layout.
+- Change title.
+- Change card appearance.
+- Change thumbnail.
+- Change description visibility.
+- Change date visibility.
+- Change icons.
+- Change colors.
+- Change spacing.
+- Change borders.
+- Change shadows.
+- Change hover.
+- Hide section.
+- Show section.
+
+## 17.1 Metadata and date information box
+
+Make the entire information box editable.
+
+Provide:
+
+- Date.
+- Historical date.
+- Publication date.
+- Category.
+- Source.
+- Location.
+- Reference number.
+- Author.
+- Custom fields.
+
+Allow:
+
+- Add field.
+- Rename field.
+- Edit field value.
+- Delete field.
+- Hide field.
+- Reorder field.
+- Change icon.
+- Change label.
+- Change color.
+- Change font.
+- Change background.
+- Change border.
+- Change radius.
+- Change shadow.
+- Change alignment.
+- Change layout.
+- Change position.
+- Set maximum visible fields.
+
+Do not make metadata fixed or uneditable.
+
+---
+
+# PART 18 — COMPLETE CUSTOM CODE AND COMPONENT BUILDER
+
+This is a major requirement.
+
+I want to be able to add code and make it work on the actual website.
+
+## 18.1 Code editor
+
+Provide:
+
+- HTML editor.
+- CSS editor.
+- JavaScript editor.
+- Syntax highlighting.
+- Code formatting where supported.
+- Search.
+- Replace.
+- Save.
+- Preview.
+- Error reporting.
+- Version history.
+- Enable/disable.
+- Delete.
+- Duplicate.
+- Restore.
+
+## 18.2 Code assignment
+
+Allow code to be assigned to:
+
+- Entire website.
+- Homepage.
+- Individual page.
+- Specific section.
+- Specific component.
+- Navigation.
+- Buttons.
+- Icons.
+- Player.
+- Loading indicator.
+- Separators.
+- Custom widgets.
+
+Show exactly where each code block is applied.
+
+## 18.3 Custom component creation
+
+Where the architecture supports it, allow the owner to create reusable components.
+
+For example:
+
+- Custom buttons.
+- Custom icons.
+- Custom separators.
+- Custom loading indicators.
+- Custom banners.
+- Custom cards.
+- Custom content blocks.
+- Custom video controls.
+- Custom decorative sections.
+
+Allow each component to have its own settings and appearance.
+
+## 18.4 Code validation and safety
+
+- Validate code before applying it.
+- Display errors.
+- Provide preview.
+- Allow rollback.
+- Prevent code from breaking unrelated pages.
+- Scope CSS appropriately.
+- Apply safe execution restrictions to custom JavaScript.
+- Never expose secret credentials.
+- Do not execute unsafe code on behalf of public visitors.
+
+A saved code block must not be marked active unless it has actually been applied successfully.
+
+---
+
+# PART 19 — SEARCH, FILTERS, AND SEO
+
+## 19.1 Search
+
+Search across:
+
+- Pages.
+- Child pages.
+- Videos.
+- Images.
+- Articles.
+- Posts.
+- Reports.
+- Audio.
+- Documents.
+- Archives.
+- Titles.
+- Descriptions.
+- Tags.
+- Metadata.
+
+Provide:
+
+- Search placeholder.
+- Search icon.
+- Search colors.
+- Search background.
+- Search layout.
+- Filters.
+- Categories.
+- Sort order.
+- Maximum results.
+- Empty state.
+- Mobile behavior.
+- Search visibility.
+
+## 19.2 SEO
+
+For every page and content item, allow:
+
+- SEO title.
+- SEO description.
+- URL slug.
+- Social preview image.
+- Indexing preferences.
+- Canonical URL where appropriate.
+- Open Graph metadata.
+- Structured metadata where appropriate.
+
+Generate stable public URLs.
+
+Do not break existing URLs unnecessarily.
+
+---
+
+# PART 20 — GENERAL SETTINGS AND ADVANCED CONFIGURATION
+
+Create an extensive General Settings area.
+
+Include:
+
+**Website identity**
+- Website name.
+- Subtitle.
+- Description.
+- Logo.
+- Site image.
+- Favicon.
+- Default colors.
+- Default font.
+- Default language.
+
+**Language and direction**
+- Arabic default.
+- RTL.
+- Additional languages.
+- Date format.
+- Time zone.
+- Language switcher.
+
+**Public website**
+- Public visibility.
+- Homepage.
+- Navigation.
+- Footer.
+- Search.
+- Public content.
+- Maintenance mode where supported.
+
+**Administration**
+- Admin route.
+- Authentication.
+- Owner account.
+- Additional administrators.
+- Permissions.
+- Session controls.
+- Security settings.
+
+**Content defaults**
+- Default publication status.
+- Default page assignment.
+- Default content layout.
+- Default metadata.
+- Default download permissions.
+- Default sharing permissions.
+
+**Media defaults**
+- Allowed formats.
+- Maximum file size.
+- Upload configuration.
+- Thumbnail configuration.
+- Video processing configuration.
+- Quality generation settings.
+- Subtitle defaults.
+- Image processing settings.
+
+**Appearance defaults**
+- Colors.
+- Fonts.
+- Buttons.
+- Icons.
+- Cards.
+- Borders.
+- Shadows.
+- Gradients.
+- Animations.
+- Responsive settings.
+
+**System**
+- Storage.
+- Database.
+- Cache.
+- Error logs.
+- Backup.
+- Restore.
+- Version history.
+- System health.
+
+Every configurable setting must be saved and applied.
+
+Do not expose settings that cannot be implemented in the actual environment.
+
+Where external provider limits exist, show the real limits rather than pretending they can be overridden.
+
+---
+
+# PART 21 — RESPONSIVE DESIGN AND MOBILE ADMINISTRATION
+
+The public website and dashboard must work on:
+
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile.
+
+Provide responsive controls for:
+
+- Header.
+- Navigation.
+- Dropdowns.
+- Cards.
+- Images.
+- Video player.
+- Buttons.
+- Text.
+- Sections.
+- Grids.
+- Galleries.
+- Footer.
+- Admin sidebar.
+- Admin forms.
+- Upload center.
+
+Allow independent mobile and desktop settings where useful.
+
+Ensure Arabic RTL layouts remain correct at every screen size.
+
+The mobile admin dashboard must remain usable, not merely shrink the desktop layout.
+
+---
+
+# PART 22 — BACKUP, RESTORE, VERSION HISTORY, AND RECOVERY
+
+## 22.1 Backup
+
+Provide backup for:
+
+- Database.
+- Pages.
+- Child pages.
+- Content.
+- Media references.
+- Configuration.
+- Appearance.
+- Homepage.
+- Navigation.
+- Subtitles.
+- Translations.
+- Custom code.
+- Permissions.
+- General settings.
+
+Include actual media files when supported by the storage and backup architecture.
+
+Show backup date, size, status, and contents.
+
+## 22.2 Restore
+
+Allow the owner to:
+
+- Select a backup.
+- Review its contents.
+- Confirm restoration.
+- Restore selected supported data.
+- Restore the complete backup.
+- Recover previous settings.
+
+Require confirmation before destructive restore operations.
+
+## 22.3 Version history
+
+Keep a history of important changes.
+
+Allow:
+
+- View previous version.
+- Compare changes.
+- Restore a previous version.
+- Identify which settings changed.
+- Identify when changes occurred.
+- Identify the authorized account responsible.
+
+Never overwrite the only recoverable version.
+
+---
+
+# PART 23 — PERFORMANCE, ERROR HANDLING, AND DUPLICATION PREVENTION
+
+## 23.1 Performance
+
+Optimize:
+
+- Images.
+- Thumbnails.
+- Video delivery.
+- Database queries.
+- Public page loading.
+- Admin page loading.
+- Search.
+- Media library.
+- Upload operations.
+
+Use caching appropriately without serving stale settings indefinitely.
+
+## 23.2 Error handling
+
+Every important operation must have:
+
+- Loading state.
+- Success state.
+- Failure state.
+- Clear message.
+- Retry where appropriate.
+- Recovery guidance.
+
+Do not leave users staring at an endless loading indicator.
+
+## 23.3 Duplicate prevention
+
+Prevent duplicate:
+
+- Content records.
+- Upload jobs.
+- Thumbnail jobs.
+- Transcoding jobs.
+- Video quality records.
+- Related-content entries.
+- Animated effects.
+- Navigation items where prohibited.
+- Database records.
+
+Saving a setting multiple times must not create multiple copies of the same feature.
+
+Repeated page refreshes must not trigger duplicate uploads or processing jobs.
+
+## 23.4 Reliable state management
+
+When a setting changes:
+
+1. Update the relevant setting.
+2. Save it to persistent storage.
+3. Confirm success.
+4. Update the relevant component.
+5. Verify the correct page or component reflects the change.
+6. Keep the saved setting after refresh.
+
+Do not display a success message when saving has failed.
+
+---
+
+# PART 24 — REQUIRED FUNCTIONAL TESTING
+
+Do not declare completion until the following tests have been performed.
+
+## 24.1 Page management tests
+
+- Create a main page.
+- Create child pages.
+- Create nested pages where supported.
+- Rename.
+- Reorder.
+- Move.
+- Duplicate.
+- Hide.
+- Show.
+- Publish.
+- Unpublish.
+- Delete.
+- Change URL.
+- Configure page appearance.
+- Configure navigation.
+- Refresh.
+- Open direct URL.
+- Confirm persistence.
+
+## 24.2 Publishing tests
+
+- Create a video post.
+- Upload its file.
+- Enter title and description.
+- Select a main page.
+- Select a child page.
+- Select additional display locations.
+- Publish.
+- Verify the item appears in the correct locations.
+- Verify no duplicate records.
+- Edit it.
+- Move it.
+- Hide it.
+- Delete it.
+- Verify it disappears from all appropriate locations.
+
+Repeat with an image and an article.
+
+## 24.3 Upload tests
+
+Use actual files.
+
+Test:
+
+- Image upload.
+- Multiple image upload.
+- Video upload.
+- Long video upload.
+- Audio upload.
+- Document upload.
+- Thumbnail upload.
+- SVG upload.
+- Interrupted upload.
+- Retry.
+- Resume where supported.
+- Storage confirmation.
+- Database confirmation.
+- Retrieval after refresh.
+
+## 24.4 Video tests
+
+- Playback.
+- Pause.
+- Volume.
+- Fullscreen.
+- Timeline.
+- Playback speed.
+- Quality selection.
+- Thumbnail extraction.
+- Thumbnail replacement.
+- Subtitle synchronization.
+- Download.
+- Share.
+- External play button.
+- Hover preview.
+- Player customization.
+- Mobile controls.
+
+## 24.5 Appearance tests
+
+Change and verify:
+
+- Color.
+- HEX color.
+- Font.
+- Font size.
+- Icon.
+- Button.
+- Background.
+- Border.
+- Radius.
+- Shadow.
+- Gradient.
+- Animated gradient.
+- Animation speed.
+- Animation direction.
+- Hover effect.
+- Section layout.
+- Thumbnail crop.
+- Mobile appearance.
+
+Verify that each change applies to the intended component and persists after refresh.
+
+## 24.6 Custom code tests
+
+- Add CSS.
+- Apply CSS to one component.
+- Verify no unintended page-wide changes.
+- Add supported HTML.
+- Add supported JavaScript.
+- Preview.
+- Save.
+- Verify application.
+- Verify error reporting.
+- Verify rollback.
+
+## 24.7 Access tests
+
+- Open public homepage without login.
+- Verify no admin dashboard appears.
+- Open `/admin`.
+- Verify authentication.
+- Verify unauthorized users cannot perform admin actions.
+- Open published content directly.
+- Test public links in incognito.
+- Test the final deployed URLs.
+
+---
+
+# PART 25 — STRICT IMPLEMENTATION AND DELIVERY RULES
+
+These rules override any shortcut or simplified implementation.
+
+1. Do not create settings that do nothing.
+2. Do not create buttons that do nothing.
+3. Do not leave essential menu options missing.
+4. Do not restrict owner permissions without a real technical or security reason.
+5. Do not hide required functionality behind inaccessible screens.
+6. Do not use fake upload progress.
+7. Do not report upload success before storage confirmation.
+8. Do not lose original files when processing fails.
+9. Do not create fake video qualities.
+10. Do not claim automatic translation or subtitle generation works unless it has actually been implemented and tested.
+11. Do not show broken images.
+12. Do not create duplicate content records.
+13. Do not create duplicate processing jobs.
+14. Do not make page and child-page assignment complicated.
+15. Do not put the admin dashboard on the public homepage.
+16. Do not lose settings after refresh.
+17. Do not remove supplied project files.
+18. Do not erase saved code.
+19. Do not change unrelated working functionality.
+20. Do not claim a feature works just because its menu exists.
+21. Do not use placeholder data as if it were real.
+22. Do not silently disable features.
+23. Do not pretend external service requirements do not exist.
+24. Do not deliver preview links as final public links.
+25. Do not declare completion without functional testing.
+
+**Every option must have a defined purpose, a working action, a saved configuration, and a verified effect.**
+
+---
+
+# PART 26 — FINAL ACCEPTANCE CHECKLIST
+
+Before final delivery, produce a detailed implementation and verification report.
+
+For every dashboard section, list:
+
+- All implemented menu items.
+- All available settings.
+- Which controls have been tested.
+- Which settings successfully save.
+- Which settings successfully apply.
+- Which features have limitations.
+- Any external configuration required.
+
+Specifically verify:
+
+- Full owner permissions.
+- Separate `/admin` route.
+- Public access without visitor login.
+- Page management.
+- Child-page management.
+- Easy content assignment.
+- Content publishing.
+- Content deletion.
+- Persistent database.
+- Cloud storage.
+- Fast uploads.
+- Video uploads.
+- Image uploads.
+- Multiple image uploads.
+- Thumbnail extraction.
+- Thumbnail replacement.
+- Video processing.
+- Real quality versions.
+- Video player controls.
+- Player icons.
+- Download.
+- Share.
+- Subtitles.
+- Multiple subtitle languages.
+- Website translations.
+- Related materials.
+- Metadata box customization.
+- Site logo.
+- Site image removal and replacement.
+- Homepage editing.
+- Navigation editing.
+- Animated colors.
+- Animated titles.
+- Gradients.
+- Animation speed and repeat.
+- Shadows.
+- Borders.
+- Backgrounds.
+- Custom icons.
+- Custom code.
+- Page-specific settings.
+- Responsive layouts.
+- Backup.
+- Restore.
+- Version history.
+- Public URL.
+- Admin URL.
+
+For each item, mark it as:
+
+- Fully implemented and tested.
+- Implemented but awaiting external configuration.
+- Not implemented.
+- Limited by a specific technical constraint.
+
+Do not mark an item as fully working without evidence from an actual test.
+
+---
+
+# FINAL NON-NEGOTIABLE INSTRUCTION
+
+I want the complete website and administration system to be extensive, detailed, professional, and genuinely functional.
+
+I want many settings, not a few basic settings.
+
+I want every menu to contain the controls needed for its purpose.
+
+I want full control over pages, child pages, publishing locations, videos, images, uploads, thumbnails, quality versions, subtitles, translations, downloads, sharing, related materials, information boxes, icons, logos, colors, animated colors, gradients, shadows, backgrounds, buttons, navigation, homepage sections, custom code, and all other website components.
+
+I want to decide the maximum number of items displayed in configurable sections, the order of content, the appearance of every relevant element, and the exact locations where content appears.
+
+I want to add my own code and have it applied to the intended component, page, or website area, with preview, validation, and error reporting.
+
+I want animated colors to move continuously at the selected speed and apply to the exact titles, text, buttons, borders, or components I select.
+
+I want uploaded videos to be stored safely, their thumbnails to be extracted where supported, their real quality versions to be generated where configured, and their playback, downloads, subtitles, and sharing to work.
+
+I want uploaded posts to be saved permanently and displayed on the pages and child pages I select.
+
+I want to be able to remove or replace the website image, logo, icons, and all other configurable visual assets.
+
+I want all settings to remain saved after refreshing, closing, and reopening the website.
+
+I want the dashboard to be separate from the public homepage.
+
+I want full owner permissions and no unexplained restrictions.
+
+**MOST IMPORTANTLY: I DO NOT WANT A WEBSITE THAT ONLY LOOKS COMPLETE. I WANT A WEBSITE THAT IS COMPLETE IN ITS ACTUAL FUNCTIONALITY.**
+
+Build the real systems behind the interface. Connect every setting to the correct component. Save every setting persistently. Prevent duplicate records and repeated jobs. Preserve original files. Handle failures properly. Test real uploads and actual public behavior.
+
+If the infrastructure requires an external service, identify the requirement and provide the configuration steps. Never replace a missing capability with a fake button or pretend it works.
+
+Do not stop when the dashboard looks finished.
+
+Do not stop when all menus are visible.
+
+Do not stop when the code compiles.
+
+**Stop only after the actual features, settings, permissions, uploads, pages, media, player, translations, animations, code, and public website have been implemented and tested.**
+
+Finally, provide the verified public URL and the protected admin URL, along with a detailed report of what was actually tested and what still requires configuration.
