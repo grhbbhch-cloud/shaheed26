@@ -1,0 +1,347 @@
+{
+  "entities": {
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized platform administrator record.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "email": { "type": "string", "format": "email", "maxLength": 254 },
+        "role": { "type": "string", "enum": ["owner", "admin", "editor"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role", "createdAt", "updatedAt"]
+    },
+    "SettingsCategory": {
+      "title": "SettingsCategory",
+      "description": "Public or private platform configuration category stored as native Firestore map.",
+      "type": "object",
+      "properties": {
+        "category": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "data": { "type": "object" },
+        "updatedBy": { "type": "string", "maxLength": 128 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["category", "data", "updatedBy", "updatedAt"]
+    },
+    "PageDocument": {
+      "title": "PageDocument",
+      "description": "Hierarchical site page node with layout, SEO, and per-page visual overrides.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "title": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "slug": { "type": "string", "minLength": 1, "maxLength": 180 },
+        "parentId": { "type": "integer" },
+        "pageType": { "type": "string", "enum": ["home", "collection", "videos", "images", "articles", "reports", "archive", "poetry", "static", "custom"] },
+        "layout": { "type": "string", "enum": ["grid", "list", "editorial", "gallery"] },
+        "sortOrder": { "type": "integer" },
+        "status": { "type": "string", "enum": ["published", "draft", "hidden", "deleted"] },
+        "navVisible": { "type": "boolean" },
+        "aggregateChildren": { "type": "boolean" },
+        "seoTitle": { "type": "string", "maxLength": 240 },
+        "seoDescription": { "type": "string", "maxLength": 600 },
+        "customContent": { "type": "string", "maxLength": 50000 },
+        "sections": { "type": "array" },
+        "settings": { "type": "object" },
+        "deletedAt": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "slug", "pageType", "layout", "status", "createdAt", "updatedAt"]
+    },
+    "ContentDocument": {
+      "title": "ContentDocument",
+      "description": "Published or draft archival content item (video, image, gallery, post, article, report, document, audio).",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "title": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "slug": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "contentType": { "type": "string", "enum": ["video", "image", "gallery", "post", "article", "news", "report", "poetry", "audio", "document", "custom"] },
+        "description": { "type": "string", "maxLength": 4000 },
+        "body": { "type": "string", "maxLength": 100000 },
+        "status": { "type": "string", "enum": ["draft", "published", "unpublished", "scheduled", "hidden", "archived", "processing", "failed", "deleted"] },
+        "featured": { "type": "boolean" },
+        "pageId": { "type": "integer" },
+        "childPageId": { "type": "integer" },
+        "extraPageIds": { "type": "array" },
+        "category": { "type": "string", "maxLength": 120 },
+        "tags": { "type": "array" },
+        "thumbnailUrl": { "type": "string", "maxLength": 2048 },
+        "mediaUrl": { "type": "string", "maxLength": 2048 },
+        "mediaFileId": { "type": "integer" },
+        "galleryUrls": { "type": "array" },
+        "linkUrl": { "type": "string", "maxLength": 2048 },
+        "linkLabel": { "type": "string", "maxLength": 120 },
+        "linkEnabled": { "type": "boolean" },
+        "linkNewTab": { "type": "boolean" },
+        "duration": { "type": "number" },
+        "resolution": { "type": "string", "maxLength": 40 },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "views": { "type": "integer" },
+        "sourceLabel": { "type": "string", "maxLength": 200 },
+        "editorLabel": { "type": "string", "maxLength": 200 },
+        "customMetadata": { "type": "object" },
+        "settings": { "type": "object" },
+        "publishedAt": { "type": "string" },
+        "scheduledAt": { "type": "string" },
+        "deletedAt": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "slug", "contentType", "status", "createdAt", "updatedAt"]
+    },
+    "MediaFileDocument": {
+      "title": "MediaFileDocument",
+      "description": "Uploaded binary file metadata, object storage key/URL, thumbnails, and transcoding renditions.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "originalName": { "type": "string", "maxLength": 300 },
+        "storedName": { "type": "string", "maxLength": 300 },
+        "filePath": { "type": "string", "maxLength": 512 },
+        "publicUrl": { "type": "string", "maxLength": 2048 },
+        "mimeType": { "type": "string", "maxLength": 120 },
+        "mediaKind": { "type": "string", "enum": ["video", "image", "audio", "document", "font", "favicon", "other"] },
+        "fileSize": { "type": "integer" },
+        "sha256": { "type": "string", "maxLength": 128 },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "duration": { "type": "number" },
+        "status": { "type": "string", "enum": ["ready", "processing", "failed"] },
+        "processingProgress": { "type": "integer" },
+        "errorMessage": { "type": "string", "maxLength": 1000 },
+        "thumbnails": { "type": "array" },
+        "renditions": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "originalName", "publicUrl", "mediaKind", "status", "createdAt"]
+    },
+    "SubtitleTrackDocument": {
+      "title": "SubtitleTrackDocument",
+      "description": "Multi-language video subtitle track stored with cues list.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "contentId": { "type": "integer" },
+        "language": { "type": "string", "maxLength": 16 },
+        "languageLabel": { "type": "string", "maxLength": 80 },
+        "title": { "type": "string", "maxLength": 160 },
+        "cues": { "type": "array" },
+        "style": { "type": "object" },
+        "visible": { "type": "boolean" },
+        "isDefault": { "type": "boolean" },
+        "status": { "type": "string", "enum": ["published", "draft", "hidden"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "contentId", "language", "languageLabel", "status", "visible", "createdAt", "updatedAt"]
+    },
+    "PoemDocument": {
+      "title": "PoemDocument",
+      "description": "Published or draft poem with design overrides.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "title": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "slug": { "type": "string", "minLength": 1, "maxLength": 180 },
+        "versesText": { "type": "string", "minLength": 1, "maxLength": 40000 },
+        "poetName": { "type": "string", "maxLength": 160 },
+        "introText": { "type": "string", "maxLength": 4000 },
+        "coverImageUrl": { "type": "string", "maxLength": 2048 },
+        "status": { "type": "string", "enum": ["draft", "published", "unpublished", "scheduled", "hidden", "deleted"] },
+        "pinned": { "type": "boolean" },
+        "sortOrder": { "type": "integer" },
+        "design": { "type": "object" },
+        "publishedAt": { "type": "string" },
+        "scheduledAt": { "type": "string" },
+        "deletedAt": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "slug", "versesText", "status", "createdAt", "updatedAt"]
+    },
+    "PoemSubmissionDocument": {
+      "title": "PoemSubmissionDocument",
+      "description": "Private visitor poetry submission awaiting manual owner review.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "authorUid": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "versesText": { "type": "string", "minLength": 1, "maxLength": 12000 },
+        "poetName": { "type": "string", "maxLength": 160 },
+        "extraInfo": { "type": "string", "maxLength": 4000 },
+        "customFields": { "type": "array" },
+        "status": { "type": "string", "enum": ["pending", "approved", "private", "rejected", "deleted"] },
+        "adminNotes": { "type": "string", "maxLength": 2000 },
+        "publishedPoemId": { "type": "integer" },
+        "deletedAt": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "authorUid", "title", "versesText", "status", "createdAt", "updatedAt"]
+    },
+    "RoleUserDocument": {
+      "title": "RoleUserDocument",
+      "description": "Admin dashboard sub-account role and RBAC permissions.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "username": { "type": "string", "minLength": 2, "maxLength": 80 },
+        "displayName": { "type": "string", "maxLength": 120 },
+        "role": { "type": "string", "enum": ["owner", "admin", "editor", "moderator", "viewer"] },
+        "permissions": { "type": "object" },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "username", "role", "permissions", "active", "createdAt", "updatedAt"]
+    },
+    "CustomCodeDocument": {
+      "title": "CustomCodeDocument",
+      "description": "Scoped CSS/HTML/JS/SVG snippet with rollback code.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string", "maxLength": 160 },
+        "scope": { "type": "string", "enum": ["global", "page", "home", "component"] },
+        "targetPageId": { "type": "integer" },
+        "targetSelector": { "type": "string", "maxLength": 200 },
+        "codeType": { "type": "string", "enum": ["css", "html", "js", "svg"] },
+        "code": { "type": "string", "maxLength": 60000 },
+        "lastWorkingCode": { "type": "string", "maxLength": 60000 },
+        "enabled": { "type": "boolean" },
+        "status": { "type": "string", "enum": ["published", "draft"] },
+        "lastError": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "name", "scope", "codeType", "code", "enabled", "status", "createdAt", "updatedAt"]
+    },
+    "BackupDocument": {
+      "title": "BackupDocument",
+      "description": "Full platform snapshot backup metadata & payload.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 200 },
+        "backupType": { "type": "string", "enum": ["manual", "automatic", "pre-restore"] },
+        "sizeBytes": { "type": "integer" },
+        "itemCount": { "type": "integer" },
+        "createdBy": { "type": "string", "maxLength": 120 },
+        "checksum": { "type": "string", "maxLength": 128 },
+        "snapshot": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "name", "backupType", "sizeBytes", "createdAt"]
+    },
+    "SettingsVersionDocument": {
+      "title": "SettingsVersionDocument",
+      "description": "Historical snapshot of a settings category or entity for rollback.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "category": { "type": "string", "maxLength": 80 },
+        "entityType": { "type": "string", "maxLength": 40 },
+        "entityId": { "type": "string", "maxLength": 80 },
+        "label": { "type": "string", "maxLength": 240 },
+        "data": { "type": "object" },
+        "createdBy": { "type": "string", "maxLength": 120 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "category", "label", "data", "createdAt"]
+    },
+    "ActivityLogDocument": {
+      "title": "ActivityLogDocument",
+      "description": "Administrative audit log entry.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "action": { "type": "string", "maxLength": 160 },
+        "section": { "type": "string", "maxLength": 80 },
+        "details": { "type": "string", "maxLength": 2000 },
+        "actor": { "type": "string", "maxLength": 120 },
+        "severity": { "type": "string", "enum": ["info", "warning", "error"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "action", "section", "actor", "severity", "createdAt"]
+    },
+    "ConnectionCheck": {
+      "title": "ConnectionCheck",
+      "description": "Diagnostics document verifying authenticated Firestore writes.",
+      "type": "object",
+      "properties": {
+        "ok": { "type": "boolean" },
+        "updatedBy": { "type": "string", "maxLength": 128 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["ok", "updatedBy", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Verified administrator allowlist documents."
+    },
+    "/test/{docId}": {
+      "schema": { "$ref": "#/entities/ConnectionCheck" },
+      "description": "Cloud connection diagnostics documents."
+    },
+    "/settings_public/{category}": {
+      "schema": { "$ref": "#/entities/SettingsCategory" },
+      "description": "Publicly readable non-sensitive site appearance and feature configuration."
+    },
+    "/settings_private/{category}": {
+      "schema": { "$ref": "#/entities/SettingsCategory" },
+      "description": "Admin-only private settings (security policies, storage endpoint config, owner auth metadata)."
+    },
+    "/pages/{pageId}": {
+      "schema": { "$ref": "#/entities/PageDocument" },
+      "description": "Hierarchical pages tree."
+    },
+    "/content/{contentId}": {
+      "schema": { "$ref": "#/entities/ContentDocument" },
+      "description": "Videos, images, galleries, posts, articles, reports, audio, documents."
+    },
+    "/media_files/{mediaId}": {
+      "schema": { "$ref": "#/entities/MediaFileDocument" },
+      "description": "Uploaded media assets metadata and renditions."
+    },
+    "/subtitles/{subtitleId}": {
+      "schema": { "$ref": "#/entities/SubtitleTrackDocument" },
+      "description": "Video subtitle tracks."
+    },
+    "/poems/{poemId}": {
+      "schema": { "$ref": "#/entities/PoemDocument" },
+      "description": "Published and draft poetry archive entries."
+    },
+    "/poem_submissions/{submissionId}": {
+      "schema": { "$ref": "#/entities/PoemSubmissionDocument" },
+      "description": "Private visitor submitted poems pending owner review."
+    },
+    "/roles_users/{roleId}": {
+      "schema": { "$ref": "#/entities/RoleUserDocument" },
+      "description": "Admin role accounts and permission matrices."
+    },
+    "/custom_code/{snippetId}": {
+      "schema": { "$ref": "#/entities/CustomCodeDocument" },
+      "description": "Scoped CSS/HTML/JS/SVG snippets."
+    },
+    "/backups/{backupId}": {
+      "schema": { "$ref": "#/entities/BackupDocument" },
+      "description": "Platform configuration and content backups."
+    },
+    "/settings_versions/{versionId}": {
+      "schema": { "$ref": "#/entities/SettingsVersionDocument" },
+      "description": "Settings and entity rollback snapshots."
+    },
+    "/activity_logs/{logId}": {
+      "schema": { "$ref": "#/entities/ActivityLogDocument" },
+      "description": "Administrative action audit logs."
+    }
+  }
+}

@@ -1,0 +1,455 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Default-Deny Catch-All (Safety Net)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ====================
+    // GLOBAL PRIMITIVES
+    // ====================
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isVerifiedUser() && (
+        request.auth.token.email == 'uiryukfh@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isValidTimestampOnCreate(data) {
+      return data.createdAt == request.time && data.updatedAt == request.time;
+    }
+
+    function isValidTimestampOnUpdate(data) {
+      return data.createdAt == existing().createdAt && data.updatedAt == request.time;
+    }
+
+    function isNonEmptyStr(val, minLen, maxLen) {
+      return val is string && val.size() >= minLen && val.size() <= maxLen;
+    }
+
+    function isOptStr(val, maxLen) {
+      return val == null || (val is string && val.size() <= maxLen);
+    }
+
+    // ====================
+    // ENTITY VALIDATORS
+    // ====================
+    function isValidAdminUser(data) {
+      return data.keys().hasAll(['uid', 'email', 'role', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['uid', 'email', 'role', 'createdAt', 'updatedAt'])
+        && isValidId(data.uid)
+        && isNonEmptyStr(data.email, 3, 254)
+        && data.role in ['owner', 'admin', 'editor']
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidConnectionCheck(data) {
+      return data.keys().hasAll(['ok', 'updatedBy', 'updatedAt'])
+        && data.keys().hasOnly(['ok', 'updatedBy', 'updatedAt'])
+        && data.ok is bool
+        && isNonEmptyStr(data.updatedBy, 1, 128)
+        && data.updatedBy == request.auth.uid
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidSettingsCategory(data) {
+      return data.keys().hasAll(['category', 'data', 'updatedBy', 'updatedAt'])
+        && data.keys().hasOnly(['category', 'data', 'updatedBy', 'updatedAt'])
+        && isNonEmptyStr(data.category, 1, 64)
+        && data.data is map
+        && isNonEmptyStr(data.updatedBy, 1, 128)
+        && data.updatedBy == request.auth.uid
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidPageDoc(data) {
+      return data.keys().hasAll(['id', 'title', 'slug', 'pageType', 'layout', 'status', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'title', 'slug', 'parentId', 'pageType', 'layout', 'sortOrder', 'status', 'navVisible', 'aggregateChildren', 'seoTitle', 'seoDescription', 'customContent', 'sections', 'settings', 'deletedAt', 'createdAt', 'updatedAt'])
+        && data.id is int
+        && isNonEmptyStr(data.title, 1, 240)
+        && isNonEmptyStr(data.slug, 1, 180)
+        && (data.parentId == null || data.parentId is int)
+        && data.pageType in ['home', 'collection', 'videos', 'images', 'articles', 'reports', 'archive', 'poetry', 'static', 'custom']
+        && data.layout in ['grid', 'list', 'editorial', 'gallery']
+        && (data.sortOrder == null || data.sortOrder is int)
+        && data.status in ['published', 'draft', 'hidden', 'deleted']
+        && (data.navVisible == null || data.navVisible is bool)
+        && (data.aggregateChildren == null || data.aggregateChildren is bool)
+        && isOptStr(data.seoTitle, 240)
+        && isOptStr(data.seoDescription, 600)
+        && isOptStr(data.customContent, 50000)
+        && (data.sections == null || (data.sections is list && data.sections.size() <= 50))
+        && (data.settings == null || data.settings is map)
+        && isOptStr(data.deletedAt, 64)
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidContentDoc(data) {
+      return data.keys().hasAll(['id', 'title', 'slug', 'contentType', 'status', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly([
+          'id', 'title', 'slug', 'contentType', 'description', 'body', 'status', 'featured',
+          'pageId', 'childPageId', 'extraPageIds', 'category', 'tags', 'thumbnailUrl', 'mediaUrl',
+          'mediaFileId', 'galleryUrls', 'linkUrl', 'linkLabel', 'linkEnabled', 'linkNewTab',
+          'duration', 'resolution', 'width', 'height', 'views', 'sourceLabel', 'editorLabel',
+          'customMetadata', 'settings', 'publishedAt', 'scheduledAt', 'deletedAt', 'createdAt', 'updatedAt'
+        ])
+        && data.id is int
+        && isNonEmptyStr(data.title, 1, 300)
+        && isNonEmptyStr(data.slug, 1, 200)
+        && data.contentType in ['video', 'image', 'gallery', 'post', 'article', 'news', 'report', 'poetry', 'audio', 'document', 'custom']
+        && isOptStr(data.description, 4000)
+        && isOptStr(data.body, 100000)
+        && data.status in ['draft', 'published', 'unpublished', 'scheduled', 'hidden', 'archived', 'processing', 'failed', 'deleted']
+        && (data.featured == null || data.featured is bool)
+        && (data.pageId == null || data.pageId is int)
+        && (data.childPageId == null || data.childPageId is int)
+        && (data.extraPageIds == null || (data.extraPageIds is list && data.extraPageIds.size() <= 20 && (data.extraPageIds.size() == 0 || data.extraPageIds[0] is int)))
+        && isOptStr(data.category, 120)
+        && (data.tags == null || (data.tags is list && data.tags.size() <= 30 && (data.tags.size() == 0 || data.tags[0] is string)))
+        && isOptStr(data.thumbnailUrl, 2048)
+        && isOptStr(data.mediaUrl, 2048)
+        && (data.mediaFileId == null || data.mediaFileId is int)
+        && (data.galleryUrls == null || (data.galleryUrls is list && data.galleryUrls.size() <= 30 && (data.galleryUrls.size() == 0 || data.galleryUrls[0] is string)))
+        && isOptStr(data.linkUrl, 2048)
+        && isOptStr(data.linkLabel, 120)
+        && (data.linkEnabled == null || data.linkEnabled is bool)
+        && (data.linkNewTab == null || data.linkNewTab is bool)
+        && (data.duration == null || data.duration is number)
+        && isOptStr(data.resolution, 40)
+        && (data.width == null || data.width is int)
+        && (data.height == null || data.height is int)
+        && (data.views == null || data.views is int)
+        && isOptStr(data.sourceLabel, 200)
+        && isOptStr(data.editorLabel, 200)
+        && (data.customMetadata == null || data.customMetadata is map)
+        && (data.settings == null || data.settings is map)
+        && isOptStr(data.publishedAt, 64)
+        && isOptStr(data.scheduledAt, 64)
+        && isOptStr(data.deletedAt, 64)
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidMediaFileDoc(data) {
+      return data.keys().hasAll(['id', 'originalName', 'publicUrl', 'mediaKind', 'status', 'createdAt'])
+        && data.keys().hasOnly([
+          'id', 'originalName', 'storedName', 'filePath', 'publicUrl', 'mimeType', 'mediaKind',
+          'fileSize', 'sha256', 'width', 'height', 'duration', 'status', 'processingProgress',
+          'errorMessage', 'thumbnails', 'renditions', 'createdAt'
+        ])
+        && data.id is int
+        && isNonEmptyStr(data.originalName, 1, 300)
+        && isOptStr(data.storedName, 300)
+        && isOptStr(data.filePath, 512)
+        && isNonEmptyStr(data.publicUrl, 1, 2048)
+        && isOptStr(data.mimeType, 120)
+        && data.mediaKind in ['video', 'image', 'audio', 'document', 'font', 'favicon', 'other']
+        && (data.fileSize == null || data.fileSize is int)
+        && isOptStr(data.sha256, 128)
+        && (data.width == null || data.width is int)
+        && (data.height == null || data.height is int)
+        && (data.duration == null || data.duration is number)
+        && data.status in ['ready', 'processing', 'failed']
+        && (data.processingProgress == null || data.processingProgress is int)
+        && isOptStr(data.errorMessage, 1000)
+        && (data.thumbnails == null || (data.thumbnails is list && data.thumbnails.size() <= 20))
+        && (data.renditions == null || (data.renditions is list && data.renditions.size() <= 10))
+        && data.createdAt is timestamp;
+    }
+
+    function isValidSubtitleDoc(data) {
+      return data.keys().hasAll(['id', 'contentId', 'language', 'languageLabel', 'status', 'visible', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'contentId', 'language', 'languageLabel', 'title', 'cues', 'style', 'visible', 'isDefault', 'status', 'createdAt', 'updatedAt'])
+        && data.id is int
+        && data.contentId is int
+        && isNonEmptyStr(data.language, 1, 16)
+        && isNonEmptyStr(data.languageLabel, 1, 80)
+        && isOptStr(data.title, 160)
+        && (data.cues == null || (data.cues is list && data.cues.size() <= 1000))
+        && (data.style == null || data.style is map)
+        && data.visible is bool
+        && (data.isDefault == null || data.isDefault is bool)
+        && data.status in ['published', 'draft', 'hidden']
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidPoemDoc(data) {
+      return data.keys().hasAll(['id', 'title', 'slug', 'versesText', 'status', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly([
+          'id', 'title', 'slug', 'versesText', 'poetName', 'introText', 'coverImageUrl',
+          'status', 'pinned', 'sortOrder', 'design', 'publishedAt', 'scheduledAt', 'deletedAt', 'createdAt', 'updatedAt'
+        ])
+        && data.id is int
+        && isNonEmptyStr(data.title, 1, 240)
+        && isNonEmptyStr(data.slug, 1, 180)
+        && isNonEmptyStr(data.versesText, 1, 40000)
+        && isOptStr(data.poetName, 160)
+        && isOptStr(data.introText, 4000)
+        && isOptStr(data.coverImageUrl, 2048)
+        && data.status in ['draft', 'published', 'unpublished', 'scheduled', 'hidden', 'deleted']
+        && (data.pinned == null || data.pinned is bool)
+        && (data.sortOrder == null || data.sortOrder is int)
+        && (data.design == null || data.design is map)
+        && isOptStr(data.publishedAt, 64)
+        && isOptStr(data.scheduledAt, 64)
+        && isOptStr(data.deletedAt, 64)
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidPoemSubmission(data) {
+      return data.keys().hasAll(['id', 'authorUid', 'title', 'versesText', 'status', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'authorUid', 'title', 'versesText', 'poetName', 'extraInfo', 'customFields', 'status', 'adminNotes', 'publishedPoemId', 'deletedAt', 'createdAt', 'updatedAt'])
+        && isValidId(data.id)
+        && isNonEmptyStr(data.authorUid, 1, 128)
+        && isNonEmptyStr(data.title, 1, 240)
+        && isNonEmptyStr(data.versesText, 1, 12000)
+        && isOptStr(data.poetName, 160)
+        && isOptStr(data.extraInfo, 4000)
+        && (data.customFields == null || (data.customFields is list && data.customFields.size() <= 30))
+        && data.status in ['pending', 'approved', 'private', 'rejected', 'deleted']
+        && isOptStr(data.adminNotes, 2000)
+        && (data.publishedPoemId == null || data.publishedPoemId is int)
+        && isOptStr(data.deletedAt, 64)
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidRoleUser(data) {
+      return data.keys().hasAll(['id', 'username', 'role', 'permissions', 'active', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'username', 'displayName', 'role', 'permissions', 'active', 'createdAt', 'updatedAt'])
+        && data.id is int
+        && isNonEmptyStr(data.username, 2, 80)
+        && isOptStr(data.displayName, 120)
+        && data.role in ['owner', 'admin', 'editor', 'moderator', 'viewer']
+        && data.permissions is map
+        && data.active is bool
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidCustomCode(data) {
+      return data.keys().hasAll(['id', 'name', 'scope', 'codeType', 'code', 'enabled', 'status', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'name', 'scope', 'targetPageId', 'targetSelector', 'codeType', 'code', 'lastWorkingCode', 'enabled', 'status', 'lastError', 'createdAt', 'updatedAt'])
+        && data.id is int
+        && isNonEmptyStr(data.name, 1, 160)
+        && data.scope in ['global', 'page', 'home', 'component']
+        && (data.targetPageId == null || data.targetPageId is int)
+        && isOptStr(data.targetSelector, 200)
+        && data.codeType in ['css', 'html', 'js', 'svg']
+        && isNonEmptyStr(data.code, 0, 60000)
+        && isOptStr(data.lastWorkingCode, 60000)
+        && data.enabled is bool
+        && data.status in ['published', 'draft']
+        && isOptStr(data.lastError, 1000)
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidBackup(data) {
+      return data.keys().hasAll(['id', 'name', 'backupType', 'sizeBytes', 'createdAt'])
+        && data.keys().hasOnly(['id', 'name', 'backupType', 'sizeBytes', 'itemCount', 'createdBy', 'checksum', 'snapshot', 'createdAt'])
+        && isValidId(data.id)
+        && isNonEmptyStr(data.name, 1, 200)
+        && data.backupType in ['manual', 'automatic', 'pre-restore']
+        && data.sizeBytes is int
+        && (data.itemCount == null || data.itemCount is int)
+        && isOptStr(data.createdBy, 120)
+        && isOptStr(data.checksum, 128)
+        && (data.snapshot == null || data.snapshot is map)
+        && data.createdAt is timestamp;
+    }
+
+    function isValidSettingsVersion(data) {
+      return data.keys().hasAll(['id', 'category', 'label', 'data', 'createdAt'])
+        && data.keys().hasOnly(['id', 'category', 'entityType', 'entityId', 'label', 'data', 'createdBy', 'createdAt'])
+        && isValidId(data.id)
+        && isNonEmptyStr(data.category, 1, 80)
+        && isOptStr(data.entityType, 40)
+        && isOptStr(data.entityId, 80)
+        && isNonEmptyStr(data.label, 1, 240)
+        && data.data is map
+        && isOptStr(data.createdBy, 120)
+        && data.createdAt is timestamp;
+    }
+
+    function isValidActivityLog(data) {
+      return data.keys().hasAll(['id', 'action', 'section', 'actor', 'severity', 'createdAt'])
+        && data.keys().hasOnly(['id', 'action', 'section', 'details', 'actor', 'severity', 'createdAt'])
+        && isValidId(data.id)
+        && isNonEmptyStr(data.action, 1, 160)
+        && isNonEmptyStr(data.section, 1, 80)
+        && isOptStr(data.details, 2000)
+        && isNonEmptyStr(data.actor, 1, 120)
+        && data.severity in ['info', 'warning', 'error']
+        && data.createdAt is timestamp;
+    }
+
+    // ====================
+    // COLLECTION RULES
+    // ====================
+    match /admins/{adminId} {
+      allow get: if isValidId(adminId) && (isOwner(adminId) || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isValidId(adminId) && isAdmin() && isValidAdminUser(incoming()) && isValidTimestampOnCreate(incoming());
+      allow update: if isValidId(adminId) && isAdmin() && isValidAdminUser(incoming()) && isValidTimestampOnUpdate(incoming())
+        && incoming().uid == existing().uid;
+      allow delete: if isValidId(adminId) && isAdmin() && adminId != request.auth.uid;
+    }
+
+    match /test/{docId} {
+      allow get: if isValidId(docId) && (docId == 'connection' || isAdmin());
+      allow create: if isValidId(docId) && docId == 'connection' && isAdmin() && isValidConnectionCheck(incoming()) && incoming().updatedAt == request.time;
+      allow update: if isValidId(docId) && docId == 'connection' && isAdmin() && isValidConnectionCheck(incoming()) && incoming().updatedAt == request.time;
+      allow delete: if isValidId(docId) && isAdmin();
+    }
+
+    match /settings_public/{category} {
+      allow get: if isValidId(category);
+      allow list: if true;
+      allow create: if isValidId(category) && isAdmin() && isValidSettingsCategory(incoming()) && incoming().category == category && incoming().updatedAt == request.time;
+      allow update: if isValidId(category) && isAdmin() && isValidSettingsCategory(incoming()) && incoming().category == existing().category && incoming().updatedAt == request.time;
+      allow delete: if isValidId(category) && isAdmin();
+    }
+
+    match /settings_private/{category} {
+      allow get: if isValidId(category) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(category) && isAdmin() && isValidSettingsCategory(incoming()) && incoming().category == category && incoming().updatedAt == request.time;
+      allow update: if isValidId(category) && isAdmin() && isValidSettingsCategory(incoming()) && incoming().category == existing().category && incoming().updatedAt == request.time;
+      allow delete: if isValidId(category) && isAdmin();
+    }
+
+    match /pages/{pageId} {
+      allow get: if isValidId(pageId) && ((resource != null && existing().status == 'published') || isAdmin());
+      allow list: if resource.data.status == 'published' || isAdmin();
+      allow create: if isValidId(pageId) && isAdmin() && isValidPageDoc(incoming()) && isValidTimestampOnCreate(incoming());
+      allow update: if isValidId(pageId) && isAdmin() && isValidPageDoc(incoming()) && isValidTimestampOnUpdate(incoming())
+        && incoming().id == existing().id;
+      allow delete: if isValidId(pageId) && isAdmin();
+    }
+
+    match /content/{contentId} {
+      allow get: if isValidId(contentId) && ((resource != null && existing().status == 'published') || isAdmin());
+      allow list: if resource.data.status == 'published' || isAdmin();
+      allow create: if isValidId(contentId) && isAdmin() && isValidContentDoc(incoming()) && isValidTimestampOnCreate(incoming());
+      allow update: if isValidId(contentId) && isAdmin() && isValidContentDoc(incoming()) && isValidTimestampOnUpdate(incoming())
+        && incoming().id == existing().id;
+      allow delete: if isValidId(contentId) && isAdmin();
+    }
+
+    match /media_files/{mediaId} {
+      allow get: if isValidId(mediaId) && ((resource != null && existing().status == 'ready') || isAdmin());
+      allow list: if resource.data.status == 'ready' || isAdmin();
+      allow create: if isValidId(mediaId) && isAdmin() && isValidMediaFileDoc(incoming()) && incoming().createdAt == request.time;
+      allow update: if isValidId(mediaId) && isAdmin() && isValidMediaFileDoc(incoming()) && incoming().id == existing().id && incoming().createdAt == existing().createdAt;
+      allow delete: if isValidId(mediaId) && isAdmin();
+    }
+
+    match /subtitles/{subtitleId} {
+      allow get: if isValidId(subtitleId) && ((resource != null && existing().status == 'published' && existing().visible == true) || isAdmin());
+      allow list: if (resource.data.status == 'published' && resource.data.visible == true) || isAdmin();
+      allow create: if isValidId(subtitleId) && isAdmin() && isValidSubtitleDoc(incoming()) && isValidTimestampOnCreate(incoming());
+      allow update: if isValidId(subtitleId) && isAdmin() && isValidSubtitleDoc(incoming()) && isValidTimestampOnUpdate(incoming())
+        && incoming().id == existing().id;
+      allow delete: if isValidId(subtitleId) && isAdmin();
+    }
+
+    match /poems/{poemId} {
+      allow get: if isValidId(poemId) && ((resource != null && existing().status == 'published') || isAdmin());
+      allow list: if resource.data.status == 'published' || isAdmin();
+      allow create: if isValidId(poemId) && isAdmin() && isValidPoemDoc(incoming()) && isValidTimestampOnCreate(incoming());
+      allow update: if isValidId(poemId) && isAdmin() && isValidPoemDoc(incoming()) && isValidTimestampOnUpdate(incoming())
+        && incoming().id == existing().id;
+      allow delete: if isValidId(poemId) && isAdmin();
+    }
+
+    match /poem_submissions/{submissionId} {
+      allow get: if isValidId(submissionId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(submissionId)
+        && isAdmin()
+        && isValidPoemSubmission(incoming())
+        && isValidTimestampOnCreate(incoming())
+        && incoming().id == submissionId;
+      allow update: if isValidId(submissionId)
+        && isAdmin()
+        && isValidPoemSubmission(incoming())
+        && isValidTimestampOnUpdate(incoming())
+        && incoming().id == existing().id
+        && incoming().authorUid == existing().authorUid;
+      allow delete: if isValidId(submissionId) && isAdmin();
+    }
+
+    match /roles_users/{roleId} {
+      allow get: if isValidId(roleId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(roleId) && isAdmin() && isValidRoleUser(incoming()) && isValidTimestampOnCreate(incoming());
+      allow update: if isValidId(roleId) && isAdmin() && isValidRoleUser(incoming()) && isValidTimestampOnUpdate(incoming())
+        && incoming().id == existing().id;
+      allow delete: if isValidId(roleId) && isAdmin();
+    }
+
+    match /custom_code/{snippetId} {
+      allow get: if isValidId(snippetId) && ((resource != null && existing().enabled == true && existing().status == 'published') || isAdmin());
+      allow list: if (resource.data.enabled == true && resource.data.status == 'published') || isAdmin();
+      allow create: if isValidId(snippetId) && isAdmin() && isValidCustomCode(incoming()) && isValidTimestampOnCreate(incoming());
+      allow update: if isValidId(snippetId) && isAdmin() && isValidCustomCode(incoming()) && isValidTimestampOnUpdate(incoming())
+        && incoming().id == existing().id;
+      allow delete: if isValidId(snippetId) && isAdmin();
+    }
+
+    match /backups/{backupId} {
+      allow get: if isValidId(backupId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(backupId) && isAdmin() && isValidBackup(incoming()) && incoming().createdAt == request.time;
+      allow update: if false;
+      allow delete: if isValidId(backupId) && isAdmin();
+    }
+
+    match /settings_versions/{versionId} {
+      allow get: if isValidId(versionId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(versionId) && isAdmin() && isValidSettingsVersion(incoming()) && incoming().createdAt == request.time;
+      allow update: if false;
+      allow delete: if isValidId(versionId) && isAdmin();
+    }
+
+    match /activity_logs/{logId} {
+      allow get: if isValidId(logId) && isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(logId) && isAdmin() && isValidActivityLog(incoming()) && incoming().createdAt == request.time;
+      allow update: if false;
+      allow delete: if isValidId(logId) && isAdmin();
+    }
+  }
+}
